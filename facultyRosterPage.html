@@ -1,0 +1,312 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Faculty Roster Report</title>
+    <link rel="stylesheet" href="css/bootstrap.css">
+    <link rel="stylesheet" href="css/facultyRosterPage.css">
+    <script src="js/bootstrap.min.js"></script>
+</head>
+
+<script type="text/javascript">
+
+    var objectArray = [];
+    var facultyMember = {
+        department: "Academic Affairs",
+        name: "Test Person 1",
+        type: "Full-time",
+        fall: ["Fall 2019", "ETSU1001 Welcome to University"],
+        spring: ["Spring 2020"],
+        degrees: ["PHD Doctor of Philosophy ETSU", "MS Master of Science ETSU"],
+        profQual: ["None Required"],
+    };
+    objectArray.push(facultyMember);
+    var facultyMember = {
+        department: "Academic Affairs",
+        name: "Test Person 2",
+        type: "Part-time",
+        fall: ["Fall 2019", "ETSU1002 Welcome to University"],
+        spring: ["Spring 2020"],
+        degrees: ["PHD Doctor of Philosophy ETSU", "MS Master of Science ETSU"],
+        profQual: ["None Required"],
+    };
+    objectArray.push(facultyMember);
+    var facultyMember = {
+        department: "Academic Affairs",
+        name: "Test Person 3",
+        type: "Graduate Associate",
+        fall: ["Fall 2019", "ETSU1003 Welcome to University"],
+        spring: ["Spring 2020"],
+        degrees: ["BS Bachelors of Science ETSU"],
+        profQual: ["None Required"],
+    };
+    objectArray.push(facultyMember);
+    var facultyMember = {
+        department: "Computing",
+        name: "Arowolo, Afeez Olalekan",
+        type: "Graduate Associate",
+        fall: ["Fall 2019", "CSCI1100 Using Information Tech"],
+        spring: ["Spring 2020"],
+        degrees: ["BSCS B.S. in Computer Science (Computer Science) University of Ilorin"],
+        profQual: ["None Required"],
+    };
+    objectArray.push(facultyMember);
+    facultyMember = {
+        department: "Computing",
+        name: "Bailes, Gordon Lee",
+        type: "Full-time",
+        fall: ["Fall 2019","CSCI1260 Intro Computer Sci II", "CSCI2210 Data Structures"],
+        spring: ["Spring 2020"],
+        degrees: ["PHD Doctor of Philosophy (Mathematics) Clemson University", "MS Master of Science (Mathematics) Clemson University", "BS Bachelor of Science (Mathematics) Clemson University"],
+        profQual: ["None Required"],
+    };
+    objectArray.push(facultyMember);
+    var facultyMember = {
+        department: "Computing",
+        name: "Bailey, Mason Gene",
+        type: "Full-time",
+        fall: courses = ["Fall 2019", "CSCI1250 Intro Computer Sci I", "CSCI2160 Assembly Language"],
+        spring: ["Spring 2020"],
+        degrees:  ["PHD Doctor of Philosophy (Computer Science) Univ Missouri Rolla", "MS Master of Science (Mathematics) Univ Minnesota Minneapolis", "AB Artium"],
+        profQual: ["None Required"],
+    };
+    objectArray.push(facultyMember);
+
+    function addCell(tr, val){
+        var td = document.createElement('td');
+        td.innerHTML = val;
+        tr.appendChild(td);
+    }
+
+    function addRow(tbl, position, currentObject){
+        var tr = document.createElement('tr');
+
+        if(position % 2 == 1)
+        {
+            tr.className = "odd-row";
+        }
+        else
+        {
+            tr.className = "even-row";
+        }
+
+        var temp = currentObject.name;
+        if(currentObject.type == "Full-time")
+        {
+            temp += " (F)";
+        }
+        else if (currentObject.type == "Part-time")
+        {
+            temp += " (P)";
+        }
+        else if (currentObject.type == "Graduate Associate")
+        {
+            temp += " (GA)";
+        }
+        addCell(tr, temp);
+
+        var temp = "<ul><li>";
+        temp += currentObject.fall[0];
+        
+        if (currentObject.fall.length > 1)
+        {
+            temp += "</li><ul>";
+            for(var j = 1; j < currentObject.fall.length; j++)
+            {
+                temp += '<li>';
+                temp += currentObject.fall[j];
+                temp += '</li>';
+            }
+            temp += '</ul><li>';
+        }
+        
+        temp += currentObject.spring[0];
+        if(currentObject.spring.length > 1)
+        {
+            temp += '</li><ul>';
+            for(var j = 1; j < currentObject.spring.length; j++)
+            {
+                temp += '<li>';
+                temp += currentObject.spring[j];
+                temp += '</li>';
+            }
+            temp += '</ul>';
+        }
+        addCell(tr, temp);
+        
+        var temp = '<ul>';
+        for (var j = 0; j < currentObject.degrees.length; j++)
+        {
+            temp += '<li>';
+            temp += currentObject.degrees[j];
+            temp += '</li>';
+        }
+        temp += '</ul>';
+        addCell(tr, temp);
+
+        var temp = '<ul>';
+        for(var j = 0; j < currentObject.profQual.length; j++)
+        {
+            temp += '<li>';
+            temp += currentObject.profQual[j];
+            temp += '</li>';
+        }
+        temp += '</ul>';
+        addCell(tr, temp);
+
+        tbl.appendChild(tr);
+
+        return position + 1;
+    }
+
+    function addHeaderCell(tr, val){
+        var th = document.createElement('th');
+        th.className = "FirstLineHeader";
+        th.innerHTML = val;
+        tr.appendChild(th);
+    }
+
+    function addHeaderRow(tbl){
+        var tr = document.createElement('tr');
+
+        addHeaderCell(tr, "Faculty Name<br>(F) = Full-time<br>(P) = Part-time<br>(GA) = Graduate Associate");
+        addHeaderCell(tr, "Courses Taught");
+        addHeaderCell(tr, "Academic Degrees");
+        addHeaderCell(tr, "Professional Qualifications");
+
+        tbl.appendChild(tr);
+    }
+
+    function loadTable(selectedDepartment, selectedFacultyType, selectedStartYear){
+
+
+        tbl = document.getElementById('ReportTable');
+        tbl.innerHTML="";
+        tbl.className = "ReportTable";
+
+        addHeaderRow(tbl);
+
+        var added = 0; // Check if the row should be shaded or not.
+        for(var i = 0; i < objectArray.length; i++)
+        {
+            if(departments[selectedDepartment] === objectArray[i].department)
+            {
+                
+                if(selectedFacultyType !== 0)
+                {
+                    if(selectedFacultyType === 1)
+                    {
+                        var currentType = objectArray[i].type;
+                        
+                        if(currentType === "Full-time")
+                        {
+                            added = addRow(tbl, added, objectArray[i]);
+                        }
+                    }
+                    else if (selectedFacultyType === 2)
+                    {
+                        if(objectArray[i].type === "Part-time")
+                        {
+                            added = addRow(tbl, added, objectArray[i]);
+                        }
+                    }
+                    else if (selectedFacultyType === 3)
+                    {
+                        if(objectArray[i].type === "Graduate Associate")
+                        {
+                            added = addRow(tbl, added, objectArray[i]);
+                        }
+                    }
+                }
+                else
+                {
+                    addRow(tbl, i, objectArray[i]);
+                }
+            }
+        }
+    }
+
+    function main(){
+
+        
+        // Setup the select functionality
+        var temp = document.getElementById("DepartmentSelectionID");
+        var selectedDepartment = temp.selectedIndex;
+        temp = document.getElementById("FacultyTypeSelectionID");
+        var selectedFacultyType = temp.selectedIndex;
+        temp = document.getElementById("StartYearSelectionID");
+        var selectedStartYear = temp.selected;
+
+        loadTable(selectedDepartment, selectedFacultyType, selectedStartYear);
+    }
+</script>
+
+<body onload="main()">
+    <!--Header and Nav would go here.-->
+
+    <div class="BackgroundContainer">
+        <div class="FacultyRosterReport">
+            <h4 class="RosterReportTitle">Faculty Roster Report</h4>
+            <div class="PageFiltering">
+
+                <div class="ChooseDepartment">
+                    <p>Department:&nbsp;</p>
+                    <select id="DepartmentSelectionID" onchange="main()">
+                        <script type="text/javascript">
+                                var departments = ["Academic Affairs", "Accounting", "Allied Health Sciences", "Appalachian Studies", "Art & Design",
+                                "Arts and Sciences", "Audio & Spch-Lang Pathology", "Biological Sciences", "Biomedical Sciences",
+                                "Biostatistics & Epidemiology", "Chemistry", "Communication", "Communication & Performance",
+                                "Community & Behavioral Health", "Community Health", "Computing", "Counseling and Human Services",
+                                "Criminal Justice & Criminolgy", "Cross-Disciplinary Studies", "Curriculum & Instruction", "Digital Media",
+                                "Early Childhood Education", "Economics & Finance", "Ed. Foundation/Special Educ.", "Educ Leadership & Policy Analy",
+                                "Eng Tech, Surv & Digital Media", "Eng., Eng. Tech., & Surveying", "Environmental Health", "Exercise and Sport Sciences",
+                                "Geosciences", "Graduate Studies", "Health Sciences", "Health Services Administration", "Health Services Mgmt & Policy",
+                                "History", "Human Development & Lrning", "Internal Medicine - COM", "Kinesiology, Leisure and Sport",
+                                "Kinesiology, Sport & Rec Mgmt", "Literature and Language", "Management & Marketing", "Mass Communication",
+                                "Mathematics & Statistics", "Media and Communication", "Microbiology - COM", "Military Science", "Music",
+                                "Nursing - Graduate", "Nursing - Undergraduate", "Pharmaceutical Sciences", "Pharmacy Practice", "Philosophy & Humanities",
+                                "Physical Therapy", "Physics & Astronomy", "Pol Sc. Intl Affairs & Pub Adm", "Psychology", "Public Health",
+                                "Rehabilitative Health Sciences", "Rural Medicine - (COM)", "Social Work", "Sociology & Anthropology",
+                                "Sport, Exer, Rec & Kinesiology", "Teaching and Learning", "Theatre and Dance", "University Honors" ];
+                            page = "";
+                            for (var i = 0; i < departments.length; i++)
+                            {
+                                page += '<option value="' + departments[i] + '">' + departments[i] + '</option>\n';
+                            }
+                            document.write(page);
+                        </script>
+                    </select>
+                </div>
+
+                <div class="ChooseFacultyType">
+                    <p>&nbsp;Faculty Type:&nbsp;</p>
+                    <select id="FacultyTypeSelectionID" onchange="main()">
+                        <option value="All">All</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Graduate Associate">Graduate Associate</option>
+                    </select>
+                </div>
+
+                <div class="ChooseStartYear">
+                    <p>&nbsp;Start Year:&nbsp;</p>
+                    <select id="StartYearSelectionID" onchange="main()">
+                        <option value="2019">2019</option>
+                        <option value="2018">2018</option>
+                        <option value="2017">2017</option>
+                        <option value="2016">2016</option>
+                    </select>
+                </div>
+            </div> <!--Page Filtering Div-->
+
+            
+
+            <div class="ReportContent">
+                <table id='ReportTable'></table>
+            </div>
+
+        </div> <!--Faculty Roster Report Div-->
+    </div> <!--Background Container Div-->
+
+</body>
+</html>
