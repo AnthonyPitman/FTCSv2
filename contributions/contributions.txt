@@ -1,0 +1,8 @@
+Ed Wilson created the first mockup, presented to the group via email on 11/3/2019. 
+Nathan Eggers did cleanup, reconfiguration to match client's specifications.
+  Additionally added login2.js and related functionality to homepage. 
+  Worked on pushing changes to GitHub to ease further collaboration with group on polishing page.
+  This push occurred on 11/11/2019 and was the result of many test builds over the past week.
+Awaiting further contributions to prototype... all work was the result of teamwork and collaboration,
+requirements gathering meetings, and group brainstorming (mostly over e-mail and short in-person conversations).
+
