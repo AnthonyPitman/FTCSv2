@@ -98,6 +98,13 @@
         background-color: lightblue;
         margin-top: 20px;
       }
+      #hidereport1 {
+        width: 100%;
+	height: 600px;
+
+      }
+
+
       </style>
     </style>
 </head>
@@ -105,7 +112,7 @@
    <header><h1 style="">Faculty Teaching Credentials System</h1></header><br/><br/>
 <div class="navtop">
             <ul class="active" style="">
-                <li style="display:inline;float:left;"><a href="#">Home </a></li>
+                <li style="display:inline;float:left;"><a href="homepage.html">Home </a></li>
 		<li style="display:inline;padding-left:20%;"><a href="#">Contact </a></li>
                 <li style="display:inline;padding-left:20%;"><a href="#">Help </a></li>
 		
@@ -146,8 +153,9 @@
 	<br/>
 	<ul style="list-style-type:none;">
 		<li>&nbsp<br/></li>
-		<li class="btnbasic"><a href="#">ETSU Mission Statement</a></li>
+		<li class="btnbasic"><a href="https://www.etsu.edu/pharmacy/about_us/vision_mission_values.php" target="_blank">ETSU Mission Statement</a></li>
 		<li class="btnbasic"><a href="#">ETSU Teaching Credentials Standards</a></li>
+		<li class="btnbasic"><a href="http://sacscoc.org/pdf/081705/faculty%20credentials.pdf" target="_blank">SACSCOC Credentials Guidelines (pdf - external link)</a></li>
 		<li class="btnbasic"><a href="#">Instructions for Chairs</a></li>
 		<li class="btnbasic"><a href="#">Guidelines for Faculty Appointment</a></li>
 		<li><a href="#"></a></li>
@@ -167,10 +175,13 @@
 
         <p>Qualified faculty members are essential in accomplishing the Mission of East Tennessee State University. The
             Faculty Teaching Credentials System presents faculty qualifications supportive of competence in teaching and
-            program coordination, assignment history, and faculty contact information.Faculty competence is established
-            by either academic or professional/ experiential qualifications</p>
+            program coordination, assignment history, and faculty contact information. Faculty competence is established
+            by either academic or professional/experiential qualifications</p>
         <br>
-        <br>
+		<br>
+		<div id="hidereport1">
+			<iframe style="width:100%;height:600px;" src="facultyRosterReport.html"></iframe>
+		</div>
 </div>
 <script src="js/login2.js" type="text/javascript">
 
