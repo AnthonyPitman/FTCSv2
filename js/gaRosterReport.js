@@ -639,11 +639,11 @@ function addRow(tbl, position, currentObject){
 
     if(position % 2 == 1)
     {
-        tr.className = "odd-row";
+        tr.className = "cssOddRow";
     }
     else
     {
-        tr.className = "even-row";
+        tr.className = "cssEvenRow";
     }
 
     var temp = currentObject.department;
@@ -707,34 +707,27 @@ function addRow(tbl, position, currentObject){
 }
 
 
-function addHeaderCell(tr, val){
-    var th = document.createElement('th');
+function addHeader(thead){
+    var strings = ["Department", "Faculty Name", "Courses Taught", "Academic Degrees", "Professional Qualificications"];
+    var row = thead.insertRow(0);
+    row.className = "cssHeaderRow";
 
-    th.className = "FirstLineHeader";
-    th.innerHTML = val;
-    tr.appendChild(th);
-}
-
-
-function addHeaderRow(tbl){
-    var tr = document.createElement('tr');
-
-    addHeaderCell(tr, "Department");
-    addHeaderCell(tr, "Faculty Name");
-    addHeaderCell(tr, "Courses Taught");
-    addHeaderCell(tr, "Academic Degrees");
-    addHeaderCell(tr, "Professional Qualifications");
-
-    tbl.appendChild(tr);
+    for(var i = 0; i < strings.length; i++)
+    {
+        var cell = row.insertCell(i);
+        cell.innerHTML = strings[i];
+        row.appendChild(cell);
+    }
 }
 
 
 function loadTable(selectedStartYear){
-    tbl = document.getElementById('ReportTable');
+    var tbl = document.getElementById('ReportTable');
     tbl.innerHTML="";
-    tbl.className = "ReportTable";
+    tbl.className = "blueTable";
 
-    addHeaderRow(tbl);
+    var header = tbl.createTHead(); // Add a table head to the table
+    addHeader(header);
 
     var added = 1; // Check if the row should be shaded or not
     for(var i = 0; i < objectArray.length; i++)
