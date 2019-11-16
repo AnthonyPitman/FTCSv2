@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html>
+<head>
+<!--<script src = "localvar.js"><script>-->
+<style>
+    body {
+     background: #041E42 none no-repeat scroll 0 0; 
+     color: #FFC72C;
+    }
+        a {
+  display: inline;
+  background-color: black;
+  border-radius: 6px;
+  color: #FFC72C;
+  width: 10%;
+  padding: 6px;
+  margin: 2%;
+  margin-top: 7%;
+  margin-left: 15%;
+}
+/* unvisited link */
+a:link {
+  color: #FFC72C;
+  border-radius: 6px;
+}
+
+/* visited link */
+a:visited {
+  color: yellow;
+}
+
+/* mouse over link */
+a:hover {
+  background-color: #A2AAAD;
+  color: black;
+}
+
+/* selected link */
+a:active {
+  color: blue;
+}
+    
+    
+</style>
+</head>
+<body onload="">
+<h4>Deans
+<button style="border-radius:6px;background-color:black;"><select id="deanlist" style="background-color:#A2AAAD;border-radius:5px;" oninput="pick_proxy();">
+	<option value="null" id="null"></option>
+    <option value="testDean" id="test">Tony Pittarese</option>
+</select></button></h4>
+<a href="proxylogin.html">Select</a>
+<script type="text/javascript">
+var DL = document.getElementByID("deanlist");
+var optionArray = new Array();
+/*
+function populateList() {
+   addOption("Tony Pittarese", "testDean", "test");
+}
+function addOption(lab, val, oid){
+    var opt = {
+    label:lab,
+    value:val,
+    id:oid,
+    };
+    var node = document.createElement("OPTION");
+    var valatt = document.createAttribute("value");
+    valatt.value = val;
+    var idatt = document.createAttribute("id");
+    idatt.value = oid;
+    var labatt = document.createTextNode(lab);
+    node.appendChild(valatt);
+    node.appendChild(labatt);
+    optionArray.push(opt);
+    DL.appendChild(node);
+}
+*/
+function writeDeanSelected(user, pass) {
+    localStorage.setItem("proxyuser", user);
+    localStorage.setItem("proxypass", pass);
+    
+}
+function pick_proxy() {
+    var selected_value = document.getElementByID("deanlist").value;
+    var selected_id = document.getElementByID("deanlist").options[selectedIndex].id;
+   writeDeanSelected(selected_value, selected_id);
+    alert(localStorage.proxyuser);
+    alert(localStorage.proxypass);
+}
+
+
+    
+</script>
+
+</body>
+
+</html>

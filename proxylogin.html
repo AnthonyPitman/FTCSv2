@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>Login test</title>
+    <style>
+      /*.hide1{
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        background-color: lightblue;
+        margin-top: 20px;
+      }
+      */
+      #hide{
+        width: 100%;
+        padding: 50px 0;
+        text-align: center;
+        background-color: lightblue;
+        margin-top: 20px;
+
+      }
+      body {
+     background: #041E42 none no-repeat scroll 0 0; 
+     color: #FFC72C;
+      }
+      </style>
+
+</head>
+<!-- the principle effect should be that of
+either smoke or mirrors or some combination of <thead>
+two -->
+
+<body onload="start();">
+
+  <!-- <button id="lb1">Login</button>
+  <div id="pt" class="hide1"></div>
+-->
+<div id='lbb3'><button  onclick="show_hide();"><h3>Login</h3></button></div>
+<button id="lb2" onclick="log_out();show_hide();"><h3>Logout</h3></button>
+<!--
+  <select id="id_of_select">
+    <option value="1">show login</option>
+    <option value="2">hide login</option>
+  </select>
+ <button id="b2" onclick="show_hide();">Show selected</button>
+-->
+<div id="display"></div>
+
+<div id="hide">
+
+  <input type="textbox" id="tb1" disabled></input>
+  <input type="password" id="pw1" disabled></input>
+  <button id="lb1" onclick="modify();">login</button>
+
+</div>
+<br>
+<div id="addIt"></div>
+<script type="text/javascript">
+//---------Globals------------------------------
+ var logoff = document.getElementById('lb2');
+ var logon = document.getElementById('lb1');
+ var biglogon = document.getElementById('lbb3');
+ var userBox = document.getElementById('tb1');
+ var passBox = document.getElementById('pw1');
+ var hidDiv = document.getElementById("hide");
+ //--------------------------------------------
+ //---Global State Objects---------------------
+ var userLogon = {
+  loggedin: false,
+  loggedout: true,
+  type: "guest",
+  id: 0,
+  userName: "#",
+};
+var administrator = {
+  userName: "testAdmin",
+  password: "test",
+  type : "admin",
+  id: 990,
+};
+var dean = {
+  userName: "testDean",
+  password: "test",
+  type : "dean",
+  id: 880,
+};
+var officer = {
+  userName: "testOfficer",
+  password: "test",
+  type : "officer",
+  id: 770,
+};
+//----------------------------------------------
+function toggle_visibility(){
+  if (userLogon.loggedin == true && userLogon.loggedout == false)
+  {
+    biglogon.style.display = "none";
+    logoff.style.visibility = "visible";
+    logoff.style.display = "inline";
+    logoff.hidden = false;
+    logon.style.visibility = "hidden";
+    userBox.style.visibility = "hidden";
+    passBox.style.visibility = "hidden";
+    alert(logoff.style.visibility);
+  }
+  if (userLogon.loggedin == false && userLogon.loggedout == true)
+  {
+    biglogon.style.display = "inline";
+    logoff.style.visibility = "hidden";
+    logoff.style.display = "inline";
+    logoff.hidden = false;
+    logon.style.visibility = "visible";
+    userBox.style.visibility = "visible";
+    passBox.style.visibility = "visible";
+    //alert(logoff.style.visibility);
+  }
+  if (userLogon.loggedin == true && userLogon.loggedout == true)
+  {
+    alert(logoff.style.visibility);
+  }
+  //alert(userLogon.loggedin);
+  //alert(userLogon.loggedout);
+}
+
+
+// 20. Use console.log() to print the penguin's name to the console as part of a welcome message, like "Hello, I'm a penguin and my name is [NAME HERE]!"
+
+
+
+      function start() {
+        toggle_visibility();
+        show_hide();
+        userBox.value = localStorage.proxyUser;
+        passBox.value = localStorage.proxyPass;
+      }
+      function show_hide() {
+        //var selector = document.getElementById('id_of_select');
+        //var value1 = selector[selector.selectedIndex].value;
+
+
+
+        if(hidDiv.style.display === "none")
+        {
+            hidDiv.style.display = "block";
+        }
+        else
+        {
+            hidDiv.style.display = "none";
+        }
+        //document.getElementById('display').innerHTML = value;
+      }
+      function log_out() {
+        userLogon.loggedin = false;
+        userLogon.loggedout = true;
+        userLogon.type = "guest";
+        userLogon.id = 0;
+        userLogon.userName = "#";
+        
+        //document.getElementById('l1').innerHTML = userLogon.type;
+        //document.getElementById('l2').innerHTML = "loggedout";
+        toggle_visibility();
+
+      }
+      function modify() {
+
+        var value2 = userBox.value;
+        var value3 = passBox.value;
+        var type2 = userLogon.type;
+        var loginstate2 = "loggedout";
+
+        if (value2 == administrator.userName && value3 == administrator.password)
+        {
+          type2 = administrator.type;
+          userLogon.type = type2;
+          userLogon.loggedin = true;
+          userLogon.loggedout = false;
+          userLogon.userName = administrator.userName;
+          userLogon.password = administrator.password;
+
+          loginstate2 = "loggedin";
+          show_hide();
+        }
+        if (value2 == dean.userName && value3 == dean.password)
+        {
+          type2 = dean.type;
+          userLogon.type = type2;
+          userLogon.loggedin = true;
+          userLogon.loggedout = false;
+          userLogon.userName = dean.userName;
+          userLogon.password = dean.password;
+            localStorage.setItem("proxyUser", dean.userName);
+          localStorage.setItem("proxyPass", "test"); 
+          loginstate2 = "loggedin";
+          show_hide();
+          var addDiv = document.getElementById("addIt");
+        var a = document.createElement('a');
+          var linkText = document.createTextNode("Proxy Tasks");
+          a.appendChild(linkText);
+          a.title = "my title text";
+          a.href = "proxytasks.html";
+          document.body.appendChild(a);
+          addDiv.appendChild(a);
+        }
+        if (value2 == officer.userName && value3 == officer.password)
+        {
+          type2 = officer.type;
+          userLogon.type = type2;
+          userLogon.loggedin = true;
+          userLogon.loggedout = false;
+          userLogon.userName = officer.userName;
+          userLogon.password = officer.password;
+          localStorage.setItem("proxyUser",officer.userName);
+          localStorage.setItem("proxyPass", "test");  
+          loginstate2 = "loggedin";
+          show_hide();
+          var addDiv = document.getElementById("addIt");
+        var a = document.createElement('a');
+          var linkText = document.createTextNode("Proxy Tasks");
+          a.appendChild(linkText);
+          a.title = "my title text";
+          a.href = "proxytasks.html";
+          document.body.appendChild(a);
+          addDiv.appendChild(a);
+        }
+        
+
+        //document.getElementById('l1').innerHTML = userLogon.type;
+        //document.getElementById('l2').innerHTML = loginstate2;
+        toggle_visibility();
+        //alert(document.getElementById('l1').innerHTML.value);
+
+        
+
+      }
+      function patch() {
+          localStorage.setItem("proxyUser", "testDean");
+          localStorage.setItem("proxyPass", "test");
+          localStorage.setItem("proxyLogin", "YES");
+          var addDiv = document.getElementById("addIt");
+          var node = document.createElement("A");
+          var hrefnode = document.createAttribute("href");
+          hrefnode.value = "proxytasks.html"
+          
+          node.appendChild(hrefnode);
+          var textnode =  
+                document.createTextNode("Proxy Tasks"); 
+            node.appendChild(textnode);
+          
+          addDiv.appendChild(node);
+          
+      }
+_</script>
+
+	</body>
+</html>

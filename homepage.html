@@ -6,156 +6,51 @@
     <link rel="stylesheet" href="css/bootstrap.css">
     <script src="js/bootstrap.min.js"></script>
 
-    <style>
-	.topmost {
-		width:100;
-		display:block;
-		background-color:#041E42;
-		color:#FFC72C;
-		padding:2%;
-	}
-	.navtop {
-		font-size:130%;
 
-
-	}
-	.navtop ul {
-		background-color:#FFC72C;
-		color:black;
-		padding:2%;
-		width:100%;
-	}
-	.navtop ul li a {
-		color:#041E42;
-	}
-
-	.main {
-  		margin: auto;
-  		width: 45%;
-  		border: 3px solid green;
-  		padding: 5%;
-		padding-bottom: 30%;
-		background-color: #A2AAAD;
-		color: black;
-	}
-	.sbarleft {
-		float:left;
-  		width: 27%;
-  		border: 3px solid green;
-  		padding-right: 5%;
-		padding-bottom: 30%;
-		background-color: black;
-		color: white;
-
-	}
-	.btnbasic {
-		border: 2px solid white;
-		border-radius: 5px;
-         }
-	.btnbasic:hover {
-		background-color: #A2AAAD;
-		color: black;
-	}
-	.btnbasic:hover a{
-
-		color: black;
-	}
-	.btnlogin {
-		border: 2px solid black;
-		border-radius: 3px;
-		padding: 5%;
-         }
-	.btnlogin:hover {
-		background-color: #blue;
-		color: white;
-	}
-	.btnlogin:hover a{
-		background-color: #blue;
-		color: yellow;
-	}
-	.sbarright {
-		float:right;
-  		width: 27%;
-  		border: 3px solid green;
-  		padding-left: 5%;
-		padding-bottom: 30%;
-		background-color: black;
-		color: white;
-	}
-	<style>
-      /*.hide1{
-        width: 100%;
-        padding: 50px 0;
-        text-align: center;
-        background-color: lightblue;
-        margin-top: 20px;
-      }
-      */
-      #hide{
-        width: 100%;
-        padding: 50px 0;
-        text-align: center;
-        background-color: lightblue;
-        margin-top: 20px;
-      }
-      #hidereport1 {
-        width: 100%;
-	height: 600px;
-
-      }
-
-
-      </style>
-    </style>
 </head>
-<body onload="start();">
-   <header><h1 style="">Faculty Teaching Credentials System</h1></header><br/><br/>
-<div class="navtop">
-            <ul class="active" style="">
-                <li style="display:inline;float:left;"><a href="homepage.html">Home </a></li>
-		<li style="display:inline;padding-left:20%;"><a href="#">Contact </a></li>
-                <li style="display:inline;padding-left:20%;"><a href="#">Help </a></li>
+<body >
+<nav class="navbar navbar-expand-sm bg-dark navbar-dark">
+    <ul class="navbar-nav ml-auto">
+        <li class="nav-item">
+            <a class="nav-link" href="homepage.html">Home</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#about">Help</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="contact.html">Contact us</a>
+        </li>
+        <li class="nav-item">
+            <a class="nav-link" href="logintry.html">Sign In</a>
+        </li>
+    </ul>
+</nav>
+<header><h1>Faculty Teaching Credentials System</h1></header>
 
 
-		<li style="display:inline;float:right;"><a href="#"><div id='lbb3'class="btnlogin"><a onclick="show_hide();">Login </a></div>
-<a id="lb2" class="btnlogin" onclick="log_out();show_hide();">Logout</a>
-<div id="display"></div></a></li>
-            </ul>
-</div>
-
-
-<div id="hide" style="float:right;padding-right:5%;">
-  <input type="textbox" id="tb1"></input>
-  <input type="password" id="pw1"></input>
-  <button id="lb1" onclick="modify();">login</button>
-</div>
-<br>
-<div id="l1"></div>
-<div> : </div>
-<div id="l2"><div>
 <br>
 <h4>Search for Faculty By
-<button style="border-radius:6px;background-color:black;"><select style="background-color:#A2AAAD;border-radius:5px;" oninput="">
-	<option style="background-color:blue"><a href="www.wikipedia.org">Name</a></option>
-	<option style="background-color:yellow">Department</option>
-	<option style="background-color:green">Course</option>
+<button style="border-radius:6px;background-color:black;"><select id="datalists" style="background-color:#A2AAAD;border-radius:5px;" oninput="change_src2()">
+	<option value="name.html">Name</option>
+	<option value="#dept">Department</option>
+	<option value="class.html">Course</option>
 <select></button></h4>
-<div class="sbarleft">
+<div class="float-left">
 <p>&nbsp</p>
 <h5 style="float:left;">Reports<br/></h5>
 <h5 style="float:left;">
-<button style="border-radius:6px;background-color:black;"><select style="background-color:#A2AAAD;border-radius:5px;" oninput="">
-	<option value="FRR" style="background-color:blue">Faculty Roster Report</option>
-	<option value="GARR"style="background-color:yellow">Graduate Assistant Roster Report</option>
-	<option value="FCR" style="background-color:green">Faculty Credentials Report</option>
-<select></button></h5><br/>
+<button style="border-radius:6px;background-color:black;"><select id="reports" style="background-color:#A2AAAD;border-radius:5px;" oninput="change_src();">
+	<option value="facultyRosterReport.html">Faculty Roster Report</option>
+	<option value="gaRosterReport.html">Graduate Assistant Roster Report</option>
+	<option value="#FCR">Faculty Credentials Report</option>
+    </select></button></h5><br/>
 	<div style="font-size:130%;">
 	<br/>
 	<ul style="list-style-type:none;">
 		<li>&nbsp<br/></li>
 		<li class="btnbasic"><a href="https://www.etsu.edu/pharmacy/about_us/vision_mission_values.php" target="_blank">ETSU Mission Statement</a></li>
 		<li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/Misc/guidelinesFaculty.aspx" target="_blank">ETSU Teaching Credentials Standards</a></li>
-		<li class="btnbasic"><a href="http://sacscoc.org/pdf/081705/faculty%20credentials.pdf" target="_blank">SACSCOC Credentials Guidelines (pdf - external link)</a></li>
+		<li class="btnbasic"><a href="http://sacscoc.org/pdf/081705/faculty%20credentials.pdf" target="_blank">SACSCOC Credentials Guidelines </a></li>
 		<li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/FTCSTrainingDocument.pdf" target="_blank">Instructions for Chairs</a></li>
 		<li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/gradfacproc212.pdf" target="_blank">Guidelines for Faculty Appointment</a></li>
 		<li><a href="#"></a></li>
@@ -165,30 +60,27 @@
 
 
 </div>
-<div class="sbarright">
-<br/>
-</div>
-<div class="main">
+<br>
+<br>
+
+<div class="main1">
         <h4>Welcome to the ETSU Faculty Teaching Credentials System (FTCS)</h4>
         <br>
         <br>
 
-        <p>Qualified faculty members are essential in accomplishing the Mission of East Tennessee State University. The
+        <!--<p>Qualified faculty members are essential in accomplishing the Mission of East Tennessee State University. The
             Faculty Teaching Credentials System presents faculty qualifications supportive of competence in teaching and
             program coordination, assignment history, and faculty contact information. Faculty competence is established
-            by either academic or professional/experiential qualifications</p>
+            by either academic or professional/experiential qualifications</p>-->
         <br>
-		<br>
-		<div id="hidereport1">
-			<iframe style="width:100%;height:600px;" src="facultyRosterReport.html"></iframe>
-		</div>
-		<div id="hidereport2">
-			<iframe style="width:100%;height:600px;" src="gaRosterReport.html"></iframe>
+        <div id="hidereport1" style="display:flex;padding:0;margin:0;width:100%;">
+			<iframe id="isrc" style="display:flex;width:100%;height:600px;padding:0;margin:0;" src="welcome.html" frameborder=0></iframe>
 		</div>
 </div>
 <script src="js/login2.js" type="text/javascript">
 
 </script>
+<script src="reports/reports.js"></script>
 
 </body>
 </html>
