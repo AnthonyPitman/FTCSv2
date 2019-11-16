@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Graduate Assistant Roster Report</title>
     <link rel="stylesheet" href="css/bootstrap.css">
-    <link rel="stylesheet" href="css/gaRosterReport.css"
+    <link rel="stylesheet" href="css/gaRosterReport.css">
     <script src="js/bootstrap.min.js"></script>
     <script src="js/gaRosterReport.js"></script>
 </head>
@@ -13,27 +13,17 @@
 
 <body onload="main()">
     <!--Header and Nav would go here-->
+    <h4 class="GARosterReportTitle">Graduate Assistant Roster Report</h4>
+    <div class="ChooseStartYear">
+        <p>Start Year:</p>
+        <select id="StartYearSelectionID" onchange="main()">
+            <option value="2019">2019</option>
+            <option value="2018">2018</option>
+            <option value="2017">2017</option>
+            <option value="2016">2016</option>
+        </select>
+    </div>
+    <table id="ReportTable" class="blueTable" border="0"></table>
 
-    <div class="BackgroundContainer">
-        <div class="GARosterReport">
-            <h4 class="GARosterReportTitle">Graduate Assistant Roster Report</h4>
-            <div class="PageFiltering">
-                <div class="ChooseStartYear">
-                    <p>Start Year:&nbsp;</p>
-                    <select id="StartYearSelectionID" onchange="main()">
-                        <option value="2019">2019</option>
-                        <option value="2018">2018</option>
-                        <option value="2017">2017</option>
-                        <option value="2016">2016</option>
-                    </select>
-                </div>
-            </div><!--Page Filtering Div-->
-
-            <div class="ReportContent">
-                <table id='ReportTable'></table>
-            </div>
-
-        </div><!--GARosterReport Div-->
-    </div><!--BackgroundContainer Div-->
 </body>
 </html>

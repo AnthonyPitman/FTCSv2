@@ -38,29 +38,6 @@
   }
 
 
-  h4.RosterReportTitle {
-    margin-bottom: 15px;
-  }
-
-
-  div.BackgroundContainer {
-    background-color: white;
-    box-shadow: 3px 5px 5px black;
-    margin: 25px;
-    padding: 25px;
-    overflow: auto
-  }
-
-  div.FacultyRosterReport {
-    float: none;
-  }
-
-  div.PageFiltering {
-    background-color: white;
-    text-align: center;
-  }
-
-
     /*Style the department selector*/
   div.ChooseDepartment {
     display: inline-block;
@@ -96,28 +73,60 @@
   }
 
 
-  div.ReportContent {
-    background-color: white;
-    text-align: center;
-  }
-  table.ReportTable {
-    display: inline-block;
-  }
-  th.FirstLineHeader {
-    background-color: #34696d;
-    color: white;
-    padding-right: 15px;
-    padding-left: 15px;
-    padding-bottom: 5px;
-    text-align: left;
-  }
-
-  .even-row{
-    background-color: rgb(193, 194, 255);
-  }
-
-
-
-li, p{
+table.blueTable {
+  border: 1px solid #1C6EA4;
+  background-color: #EEEEEE;
+  width: 100%;
   text-align: left;
+  border-collapse: collapse;
+}
+table.blueTable td, table.blueTable th {
+  border: 2px solid #AAAAAA;
+  padding: 3px 2px;
+}
+table.blueTable td {
+  font-size: 13px;
+}
+table.blueTable tr:nth-child(even) {
+  background: #D0E4F5;
+}
+table.blueTable thead {
+  background: #1C6EA4;
+  background: -moz-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: -webkit-linear-gradient(top, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  background: linear-gradient(to bottom, #5592bb 0%, #327cad 66%, #1C6EA4 100%);
+  border-bottom: 2px solid #444444;
+}
+table.blueTable thead th {
+  font-size: 15px;
+  font-weight: bold;
+  color: #FFFFFF;
+  border-left: 2px solid #D0E4F5;
+}
+table.blueTable thead th:first-child {
+  border-left: none;
+}
+
+table.blueTable tfoot {
+  font-size: 14px;
+  font-weight: bold;
+  color: #FFFFFF;
+  background: #D0E4F5;
+  background: -moz-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: -webkit-linear-gradient(top, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  background: linear-gradient(to bottom, #dcebf7 0%, #d4e6f6 66%, #D0E4F5 100%);
+  border-top: 2px solid #444444;
+}
+table.blueTable tfoot td {
+  font-size: 14px;
+}
+table.blueTable tfoot .links {
+  text-align: right;
+}
+table.blueTable tfoot .links a{
+  display: inline-block;
+  background: #1C6EA4;
+  color: #FFFFFF;
+  padding: 2px 8px;
+  border-radius: 5px;
 }
