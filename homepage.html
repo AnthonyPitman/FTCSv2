@@ -59,7 +59,7 @@
   </div>
 </div>
         </li>
-        
+
     </ul>
 </nav>
 <header><h1>Faculty Teaching Credentials System</h1></header>
@@ -79,7 +79,7 @@
 <button style="border-radius:6px;background-color:black;"><select id="reports" style="background-color:#A2AAAD;border-radius:5px;" oninput="change_src();">
 	<option value="facultyRosterReport.html">Faculty Roster Report</option>
 	<option value="gaRosterReport.html">Graduate Assistant Roster Report</option>
-	<option value="#FCR">Faculty Credentials Report</option>
+	<option value="facultyReport.html">Faculty Credentials Report</option>
     </select></button></h6><br/>
 	<div style="font-size:105%;">
 	<br/>
@@ -165,7 +165,7 @@ function toggle_visibility(){
     logon.style.visibility = "hidden";
     userBox.style.visibility = "hidden";
     passBox.style.visibility = "hidden";
-    
+
   }
   if (userLogon.loggedin == false && userLogon.loggedout == true)
   {
@@ -176,13 +176,13 @@ function toggle_visibility(){
     logon.style.visibility = "visible";
     userBox.style.visibility = "visible";
     passBox.style.visibility = "visible";
-    
+
   }
   if (userLogon.loggedin == true && userLogon.loggedout == true)
   {
     alert("Illegal state: loggedin and loggedout");
   }
-  
+
 }
 
 
@@ -220,7 +220,7 @@ function toggle_visibility(){
 
         //document.getElementById('l1').innerHTML = userLogon.type;
         //document.getElementById('l2').innerHTML = "loggedout";
-        
+
         document.getElementById('tasksfill').innerHTML= "";
         toggle_visibility();
         localLogoff();
@@ -244,7 +244,7 @@ function toggle_visibility(){
 
           loginstate2 = "loggedin";
           show_hide();
-          
+
         }
         if (value2 == dean.userName && value3 == dean.password)
         {
@@ -257,7 +257,7 @@ function toggle_visibility(){
 
           loginstate2 = "loggedin";
           show_hide();
-          
+
         }
         if (value2 == officer.userName && value3 == officer.password)
         {
@@ -270,40 +270,40 @@ function toggle_visibility(){
 
           loginstate2 = "loggedin";
           show_hide();
-          
+
         }
 
         //document.getElementById('l1').innerHTML = userLogon.type;
         //document.getElementById('l2').innerHTML = loginstate2;
         toggle_visibility();
-        
+
 
         if (userLogon.loggedin == true){
             localLogon(userLogon.type, "YES", userLogon.userName);
             if(localStorage.userRole == administrator.type) {
                 var node = document.createElement("A");
-                var textnode =  
-                document.createTextNode("Admin Tasks"); 
+                var textnode =
+                document.createTextNode("Admin Tasks");
                 node.appendChild(textnode);
                 node.setAttribute("href", "admintasks.html");
                 document.getElementById('tasksfill').appendChild(node);
                 testLogon();
-                
+
             }
             if(localStorage.userRole == dean.type) {
                 var node1 = document.createElement("A");
-                var textnode1 =  
-                document.createTextNode("Dean Tasks"); 
+                var textnode1 =
+                document.createTextNode("Dean Tasks");
                 node1.appendChild(textnode1);
                 node1.setAttribute("href", "#dean");
                 document.getElementById('tasksfill').appendChild(node1);
-                
+
                 testLogon();
             }
             if(localStorage.userRole == officer.type) {
                 var node2 = document.createElement("A");
-                var textnode2 =  
-                document.createTextNode("Officer Tasks"); 
+                var textnode2 =
+                document.createTextNode("Officer Tasks");
                 node2.appendChild(textnode2);
                 node2.setAttribute("href", "#officer");
                 document.getElementById('tasksfill').appendChild(node2);
@@ -313,7 +313,7 @@ function toggle_visibility(){
 
       }
     function taskfill() {
-        
+
     }
 _</script>
 <script src="js/localvar.js"></script>

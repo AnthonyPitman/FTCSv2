@@ -820,8 +820,6 @@ function loadTable(selectedDepartment, selectedFacultyType, selectedStartYear){
 }
 
 function main(){
-
-
     // Setup the select functionality
     var temp = document.getElementById("DepartmentSelectionID");
     var selectedDepartment = temp.selectedIndex;
