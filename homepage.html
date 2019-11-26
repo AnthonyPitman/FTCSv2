@@ -1,4 +1,4 @@
-<!DOCTYPE html>
+﻿<!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
@@ -10,9 +10,7 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <style>
-        button select {
-            width: 95%;
-        }
+       
     </style>
 </head>
 <body >
@@ -46,9 +44,9 @@
       <div class="modal-body" style="color:black;">
         <strong>
         <label>UserName </label>
-        <input type="textbox" id="tb1"></input><br/>
+        <input type="textbox" id="tb1"><br/>
         <label>Password &nbsp</label>
-        <input type="password" id="pw1"></input>
+        <input type="password" id="pw1">
         </strong>
       </div>
       <div class="modal-footer">
@@ -65,13 +63,19 @@
 <header><h1>Faculty Teaching Credentials System</h1></header>
 
 
-<br>
-<h4>Search for Faculty By
-<button style="border-radius:6px;background-color:black;"><select id="datalists" style="background-color:#A2AAAD;border-radius:5px;" oninput="change_src2()">
-	<option value="name.html">Name</option>
-	<option value="#dept">Department</option>
-	<option value="class.html">Course</option>
-<select></button></h4>
+<br/>
+<br/>
+<div class="dropdown show" style="margin:auto;padding-left:45%">
+    <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+        Search Faculty By
+    </a>
+    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+        <a class="dropdown-item" href="#" onclick="change_src(3);">Name</a>
+        <a class="dropdown-item" href="#" onclick="change_src(4);">Department</a>
+        <a class="dropdown-item" href="#" onclick="change_src(5);">Class</a>
+    </div>
+    </div>
+
 <div class="float-lg-left" style="">
 <p>&nbsp</p>
     <div class="dropdown show" style="margin:auto;">
@@ -80,9 +84,9 @@
   </a>
 
   <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-    <a class="dropdown-item" href="facultyRosterReport.html">Faculty Roster Report</a>
-    <a class="dropdown-item" href="gaRosterReport.html">Graduate Assistant Roster Report</a>
-    <a class="dropdown-item" href="facultyReport.html">Faculty Credentials Report</a>
+    <a class="dropdown-item" href="#" onclick="change_src(0);">Faculty Roster Report</a>
+    <a class="dropdown-item" href="#" onclick="change_src(1)">Graduate Assistant Roster Report</a>
+    <a class="dropdown-item" href="#" onclick="change_src(2)">Faculty Credentials Report</a>
   </div>
 </div>
 <!--
@@ -94,7 +98,7 @@
 	<option value="facultyReport.html">Faculty Credentials Report</option>
     </select></button></h6><br/>
 -->
-	<div style="font-size:105%;">
+	<div style="font-size:100%;">
 	<br/>
 	<ul style="list-style-type:none;">
 		<li>&nbsp<br/></li>
@@ -107,27 +111,21 @@
 	</ul>
 	</div>
     <br/>
-
+    <div class="float-lg-right">
+        <div id="tasksfill"></div>
+    </div>
 
 
 </div>
 <br>
 <br>
 
-<div class="main1">
-        <h4>Welcome to the ETSU Faculty Teaching Credentials System (FTCS)</h4>
-        <br>
-        <br>
 
-        <!--<p>Qualified faculty members are essential in accomplishing the Mission of East Tennessee State University. The
-            Faculty Teaching Credentials System presents faculty qualifications supportive of competence in teaching and
-            program coordination, assignment history, and faculty contact information. Faculty competence is established
-            by either academic or professional/experiential qualifications</p>-->
-        <br>
-        <div id="hidereport1" style="display:flex;padding:0;margin:0;width:100%;">
-			<iframe id="isrc" style="display:flex;width:100%;height:600px;padding:0;margin:0;" src="welcome.html" frameborder=0></iframe>
-		</div>
-</div>
+        
+        
+	<iframe id="isrc" style="display:block;width:60%;height:600px;padding-left:5%;margin:0;position:relative;" src="welcome.html" frameborder=0></iframe>
+		
+
 <script src="js/login2.js" type="text/javascript">
 
 </script>
@@ -327,6 +325,18 @@ function toggle_visibility(){
       }
     function taskfill() {
 
+    }
+    function change_src(n) {
+        var url = [
+            "facultyRosterReport.html",
+            "gaRosterReport.html",
+            "facultyReport.html",
+            "name.html",
+            "#dept",
+            "class.html"
+        ];
+        document.getElementById("isrc").setAttribute("src", url[n]);
+        alert(url[n]);
     }
 _</script>
 <script src="js/localvar.js"></script>
