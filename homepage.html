@@ -71,8 +71,8 @@
                 $('#loginModal').modal('hide');
                 alert();
                 event.preventDefault();
-                
-                
+
+
             });
 
         });
@@ -93,55 +93,55 @@
             <a class="dropdown-item" href="#" onclick="change_src(5);">Class</a>
         </div>
     </div>
-    <br/>
-    <br/>
-    <br/>
+    <br />
+    <br />
+    <br />
     <div class="row">
         <div class="col col-md-auto"></div>
-            <div class="float-lg-left" style="">
+        <div class="float-lg-left" style="">
             <p>&nbsp</p>
-                <div class="dropdown show" style="margin:auto;">
+            <div class="dropdown show" style="margin:auto;">
                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                     Reports
                 </a>
 
-                    <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                     <a class="dropdown-item" href="#" onclick="change_src(0);">Faculty Roster Report</a>
                     <a class="dropdown-item" href="#" onclick="change_src(1)">Graduate Assistant Roster Report</a>
                     <a class="dropdown-item" href="#" onclick="change_src(2)">Faculty Credentials Report</a>
-                    </div>
                 </div>
+            </div>
 
-                <div style="font-size:100%;">
-                    <br />
-                    <ul style="list-style-type:none;">
-                        <li>&nbsp<br /></li>
-                        <li class="btnbasic"><a href="https://www.etsu.edu/pharmacy/about_us/vision_mission_values.php" target="_blank">ETSU Mission Statement</a></li>
-                        <li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/Misc/guidelinesFaculty.aspx" target="_blank">ETSU Teaching Credentials Standards</a></li>
-                        <li class="btnbasic"><a href="http://sacscoc.org/pdf/081705/faculty%20credentials.pdf" target="_blank">SACSCOC Credentials Guidelines </a></li>
-                        <li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/FTCSTrainingDocument.pdf" target="_blank">Instructions for Chairs</a></li>
-                        <li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/gradfacproc212.pdf" target="_blank">Guidelines for Faculty Appointment</a></li>
-                        <li><a href="#"></a></li>
-                    </ul>
-                </div>
+            <div style="font-size:100%;">
                 <br />
-                <div style="width:200px"></div>
+                <ul style="list-style-type:none;">
+                    <li>&nbsp<br /></li>
+                    <li class="btnbasic"><a href="https://www.etsu.edu/pharmacy/about_us/vision_mission_values.php" target="_blank">ETSU Mission Statement</a></li>
+                    <li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/Misc/guidelinesFaculty.aspx" target="_blank">ETSU Teaching Credentials Standards</a></li>
+                    <li class="btnbasic"><a href="http://sacscoc.org/pdf/081705/faculty%20credentials.pdf" target="_blank">SACSCOC Credentials Guidelines </a></li>
+                    <li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/FTCSTrainingDocument.pdf" target="_blank">Instructions for Chairs</a></li>
+                    <li class="btnbasic"><a href="http://ftcs-server.etsu.edu/ftcs/gradfacproc212.pdf" target="_blank">Guidelines for Faculty Appointment</a></li>
+                    <li><a href="#"></a></li>
+                </ul>
             </div>
-            
-            <div class="col col-lg">
-                
-                <iframe id="isrc" style="display:block;width:100%;height:600px;padding-left:20%;margin:0;position:relative;" src="welcome.html" frameborder=0></iframe>
-                <div class="col col-md" style="width:400px;">
-                    &nbsp;&nbsp;&nbsp;
-                </div>
+            <br />
+            <div style="width:200px"></div>
+        </div>
+
+        <div class="col col-lg">
+
+            <iframe id="isrc" style="display:block;width:100%;height:600px;padding-left:20%;margin:0;position:relative;" src="welcome.html" frameborder=0></iframe>
+            <div class="col col-md" style="width:400px;">
+                &nbsp;&nbsp;&nbsp;
             </div>
-            
-            <div class="col col-md-auto" style="width:30%">
-                <div id="tasksfill"></div>
-                <div id="proxyfill"></div>
-                <div style="width:200px;"
+        </div>
+
+        <div class="col col-md-auto" style="width:30%">
+            <div id="tasksfill"></div>
+            <div id="proxyfill"></div>
+            <div style="width:200px;"
             </div>
-        
+
 
 
         </div>
@@ -152,11 +152,11 @@
 
 
 
-    
+
     <template id="adminMenu">
-        
-        
-            <div class="dropdown show" style="margin:auto;">
+
+
+        <div class="dropdown show" style="margin:auto;">
             <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                 Admin Tasks
             </a>
@@ -165,21 +165,61 @@
                 <a class="dropdown-item" href="#" onclick="">Manage Proxies</a>
                 <a class="dropdown-item" href="#" onclick="">Specify Proxy</a>
             </div>
+        </div>
+        <br />
+        <!-- Modal Menus for Admin-->
+        <!-- Proxy Login Modal-->
+        <div class="modal fade" id="proxyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel" style="color:black">User Login</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        <strong>
+                            <label>UserName </label>
+                            <input type="textbox" id="tb1" disabled><br />
+                            <label>Password &nbsp</label>
+                            <input type="password" id="pw1" disabled>
+                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
+                            <!-- javascript should be in these files-->
+                        </strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Login</button>
+                    </div>
+                </div>
             </div>
+        </div>
+        <!-- -->
     </template>
     <template id="deanMenu">
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#" onclick="">Name</a>
-            <a class="dropdown-item" href="#" onclick="">Department</a>
-            <a class="dropdown-item" href="#" onclick="">Class</a>
+        <div class="dropdown show" style="margin:auto;">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Dean Tasks
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#" onclick="">Manage College Information</a>
+            </div>
         </div>
+        <br />
+
     </template>
-    </template id="officerMenu">
-        <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-            <a class="dropdown-item" href="#" onclick="">Name</a>
-            <a class="dropdown-item" href="#" onclick="">Department</a>
-            <a class="dropdown-item" href="#" onclick="">Class</a>
+    <template id="officerMenu">
+        <div class="dropdown show" style="margin:auto;">
+            <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                Officer Tasks
+            </a>
+            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                <a class="dropdown-item" href="#" onclick="">Manage Department</a>
+
+            </div>
         </div>
+        <br />
     </template>
     <script src="js/login2.js" type="text/javascript">
 
@@ -309,8 +349,12 @@
                 show_hide();
                 $('#loginModal').modal('hide');
                 //-----Admin Tasks Fill----
-                
 
+
+            } else {
+                if (value2 != dean.userName && value2 != officer.userName) {
+                    alert("Incorrect Login Information.");
+                }
             }
             if (value2 == dean.userName && value3 == dean.password) {
                 type2 = dean.type;
@@ -321,6 +365,7 @@
                 userLogon.password = dean.password;
 
                 loginstate2 = "loggedin";
+                taskfill();
                 localLogon(userLogon.type, "YES", userLogon.userName);
                 show_hide();
                 $('#loginModal').modal('hide');
@@ -334,6 +379,7 @@
                 userLogon.password = officer.password;
 
                 loginstate2 = "loggedin";
+                taskfill();
                 localLogon(userLogon.type, "YES", userLogon.userName);
                 $('#loginModal').modal('hide');
             }
@@ -342,47 +388,55 @@
             //document.getElementById('l2').innerHTML = loginstate2;
             //toggle_visibility();
 
-            
-                
-            
+
+
+
 
         }
         function taskfill() {
             let tasks = document.getElementById("tasksfill");
+            tasks.innerHTML = "";
             alert("taskfill called");
             if (userLogon.type == administrator.type) {
-                    alert("secondary verification successful");
-                   // var node0 = document.createElement("A");
-                    //var textnode = document.createTextNode("Admin Tasks");
-                    //node0.appendChild(textnode);
-                    //node0.setAttribute("href", "admintasks.html");
-                    //document.getElementById('tasksfill').appendChild(node0);
-                    //testLogon();
-                    
-                    let template = document.getElementById("adminMenu");
-                    let templateContent = template.content;
-                    tasks.appendChild(templateContent);
-                    //$('#loginModal').modal('hide');
+                alert("secondary verification successful");
+                // var node0 = document.createElement("A");
+                //var textnode = document.createTextNode("Admin Tasks");
+                //node0.appendChild(textnode);
+                //node0.setAttribute("href", "admintasks.html");
+                //document.getElementById('tasksfill').appendChild(node0);
+                //testLogon();
+
+                let template = document.getElementById("adminMenu");
+                let templateContent = template.content;
+                tasks.appendChild(templateContent);
+                //$('#loginModal').modal('hide');
             }
 
             if (userLogon.type == dean.type) {
-                    var node1 = document.createElement("A");
-                    var textnode1 = document.createTextNode("Dean Tasks");
-                    node1.appendChild(textnode1);
-                    node1.setAttribute("href", "#dean");
-                    document.getElementById('tasksfill').appendChild(node1);
-
-                    testLogon();
-                    //$('#loginModal').modal('hide');
+                alert("second verification successful");
+                //var node1 = document.createElement("A");
+                //var textnode1 = document.createTextNode("Dean Tasks");
+                //node1.appendChild(textnode1);
+                //node1.setAttribute("href", "#dean");
+                //document.getElementById('tasksfill').appendChild(node1);
+                let template1 = document.getElementById("deanMenu");
+                let templateContent1 = template1.content;
+                tasks.appendChild(templateContent1);
+                //testLogon();
+                //$('#loginModal').modal('hide');
             }
             if (userLogon.type == officer.type) {
-                    var node2 = document.createElement("A");
-                    var textnode2 = document.createTextNode("Officer Tasks");
-                    node2.appendChild(textnode2);
-                    node2.setAttribute("href", "#officer");
-                    document.getElementById('tasksfill').appendChild(node2);
-                    testLogon();
-                    //$('#loginModal').modal('hide');
+                alert("second verification successful");
+                //var node2 = document.createElement("A");
+                //var textnode2 = document.createTextNode("Officer Tasks");
+                //node2.appendChild(textnode2);
+                //node2.setAttribute("href", "#officer");
+                //document.getElementById('tasksfill').appendChild(node2);
+                //testLogon();
+                //$('#loginModal').modal('hide');
+                let template1 = document.getElementById("officerMenu");
+                let templateContent1 = template1.content;
+                tasks.appendChild(templateContent1);
             }
         }
         function change_src(n) {
@@ -397,10 +451,16 @@
             document.getElementById("isrc").setAttribute("src", url[n]);
             alert(url[n]);
         }
-        
+
         _</script>
-    
 
 
+    <footer class="page-footer font-small bg-dark pt-4" style="display:block;width:100%;background-color:black;">
+        <div class="footer-copyright text-center py-3" style="background-color:black;">
+            2019 Open Source Edition:
+            <a href="#"> ETSU Software System Engineering Team "Sarsparilla's Ghost"</a>
+            <p>Version 2 (Prototype) of FTCS software</p>
+        </div>
+    </footer>
 </body>
 </html>
