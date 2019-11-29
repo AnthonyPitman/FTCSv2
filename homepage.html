@@ -162,18 +162,73 @@
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#" onclick="">Manage Officers</a>
-                <a class="dropdown-item" href="#" onclick="">Manage Proxies</a>
-                <a class="dropdown-item" href="#" onclick="">Specify Proxy</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#manageproxyModal" onclick="">Manage Proxies</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#proxyselectModal" onclick="">Specify Proxy</a>
             </div>
         </div>
         <br />
         <!-- Modal Menus for Admin-->
-        <!-- Proxy Login Modal-->
-        <div class="modal fade" id="proxyModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+        <!-- Add Remove Proxy Modal-->
+        <div class="modal fade" id="manageproxyModal" tabindex="-1" role="dialog" aria-labelledby="mpModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="exampleModalLabel" style="color:black">User Login</h5>
+                        <h5 class="modal-title" id="mpModalLabel" style="color:black">Manage Proxies</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        <strong>
+                            &nbsp;
+                        </strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#addproxyModal" onclick="">Add Proxy</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#removeproxyModal" onclick="">Remove Proxy</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Proxy Select Modal-->
+        <div class="modal fade" id="proxyselectModal" tabindex="-1" role="dialog" aria-labelledby="psModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="psModalLabel" style="color:black">Proxy Select</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        <strong>
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Proxy Selection
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a class="dropdown-item" href="#" onclick="change_src(3);">Tony Pittarese</a>
+                                    <a class="dropdown-item" href="#" onclick="change_src(4);">Brian Bennett</a>
+                                </div>
+                            </div>
+                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
+                            <!-- javascript should be in these files-->
+                        </strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Select</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Proxy Login Modal-->
+        <div class="modal fade" id="proxyModal" tabindex="-1" role="dialog" aria-labelledby="pModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="pModalLabel" style="color:black">Proxy Login</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -191,6 +246,66 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Login</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Add Proxy-->
+        <div class="modal fade" id="addproxyModal" tabindex="-1" role="dialog" aria-labelledby="apModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="apModalLabel" style="color:black">Add Proxy</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        <strong>
+                            <label>Input New Proxy UserName </label>
+                            <input type="textbox" id="tbAdd"><br />
+
+                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
+                            <!-- javascript should be in these files-->
+                        </strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Remove Proxy Modal-->
+        <div class="modal fade" id="removeproxyModal" tabindex="-1" role="dialog" aria-labelledby="rpModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="rpModalLabel" style="color:black">Remove Proxy</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        <strong>
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Proxy Selection
+                                </a>
+                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
+                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                </div>
+                            </div>
+                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
+                            <!-- javascript should be in these files-->
+                        </strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Remove</button>
                     </div>
                 </div>
             </div>
