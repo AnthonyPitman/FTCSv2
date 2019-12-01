@@ -447,22 +447,22 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name &emsp; &emsp; &nbsp; &emsp; &nbsp; &nbsp;</label>
-                            <input type="textbox" id="tbFName"><br />
+                            <input type="textbox" id="tbFName1"><br />
                             <label>Department &emsp; &nbsp; &emsp; &nbsp; &emsp; &nbsp; &emsp; &nbsp; &nbsp;&nbsp;</label>
-                            <input type="textbox" id="tbDept"><br />
+                            <input type="textbox" id="tbDept1"><br />
                             <label>College - Major - Date Completed</label>
-                            <input type="textbox" id="tbCollege"><br />
+                            <input type="textbox" id="tbCollege1"><br />
                             <label>College Level &emsp; &emsp; &nbsp; &emsp; &nbsp; &emsp; &emsp;&nbsp;</label>
-                            <input type="textbox" id="tbCLevel"><br />
+                            <input type="textbox" id="tbCLevel1"><br />
                             <label>File Location of Transcript &nbsp; &emsp;</label>
-                            <input type="textbox" id="tbTranscript"><br />
+                            <input type="textbox" id="tbTranscript1"><br />
 
 
                         </strong>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addAcademic()">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addAcademic(1)">Add</button>
                     </div>
                 </div>
             </div>
@@ -633,7 +633,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addAcademic()">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addAcademic(6)">Add</button>
                     </div>
                 </div>
             </div>
@@ -781,6 +781,8 @@
         //college = "CBAT";
         //dept = "Computing";
         proxySet = "none";
+        proxyUser = "gtg";
+        proxyUsers = new Array();
         var userLogon = {
             loggedin: false,
             loggedout: true,
@@ -814,6 +816,28 @@
             dept = "Computing",
             chair = "Brian Bennett",
         }
+       /* var faculty = {
+            id = 700,
+            name = "Joe Doe",
+            type = "academic",
+        };*/
+        var academic = {
+            name = "Joe Doe",
+            dept = "Digital Media",
+            college = "College of Fine Arts - Digital Arts - 1999",
+            level = "PhD",
+            fileURL = "file:///C:/JoeDoe1999transcript.txt",
+        }
+        var professional = {
+            name = "John Dunn",
+            dept = "Computing",
+            company = "Bristol Motor City Data Entry - Data Entry Professional - 5 years",
+            classesA = "Computer Data Entry - Course Section TBA",
+            fileURL = "file:///C:/motorcitydunnresume2018.txt",
+        }
+        var academics = new Array();
+        var professionals = new Array();
+        //var faculties = new Array();
         var collegeDeans = new Array();
         var deptChairs = new Array();
         //----------------------------------------------
@@ -1029,6 +1053,32 @@
         function setDean(choice6) {
             //ddd
             collegeDean.dean = chooser("ddd", choice6);
+        }
+        //----Add----------------
+        function getInput(id9) {
+            return document.getElementById(id9).value;
+        }
+        function addAcademic(num) {
+            academic.name = getInput("tbFName"+num);
+            academic.dept = getInput("tbDept"+num);
+            academic.college = getInput("tbCollege"+num);
+            academic.level = getInput("tbCLevel"+num);
+            academic.fileURL = getInput("tbTranscript"+num);
+            academics.push(academic);
+            alert(academic.name + " has been added.");
+        }
+        function addProfessional(num2) {
+            professional.name = getInput("tbFName" + num2);
+            professional.dept = getInput("tbDept" + num2);
+            professional.company = getInput("tbCompany" + num2);
+            professional.classesA = getInput("tbClasses" + num2);
+            professional.fileURL = getInput("tbResume" + num2);
+            professionals.push(professional);
+            alert(professional.name + " has been added.").
+        }
+        function proxyAdd() {
+            proxyUser = getInput("tbAdd");
+            proxyUsers.push(proxyUser);
         }
         _</script>
 
