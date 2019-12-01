@@ -161,13 +161,120 @@
                 Admin Tasks
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#" onclick="">Manage Officers</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#mcoModal" onclick="">Manage Officers</a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#manageproxyModal" onclick="">Manage Proxies</a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#proxyselectModal" onclick="">Specify Proxy</a>
             </div>
         </div>
         <br />
         <!-- Modal Menus for Admin-->
+        <!--Modals for Manage Credential Officers Task-->
+        <!--mcoModal-->
+        <div class="modal fade" id="mcoModal" tabindex="-1" role="dialog" aria-labelledby="mpModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="mpModalLabel" style="color:black">Manage Credential Officers</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        <strong>
+                            &nbsp;
+                        </strong>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#deanchangeModal" onclick="">Manage College</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#chairchangeModal" onclick="">Manage Department</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--deanchangeModal-->
+        <div class="modal fade" id="deanchangeModal" tabindex="-1" role="dialog" aria-labelledby="dcModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="dcModalLabel" style="color:black">Change Dean</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    College
+                                </a>
+                                <div id="collegeDD" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="ccd1" class="dropdown-item" href="#" onclick="collegeChosen(1)">CBAT</a>
+                                    <a id="ccd2" class="dropdown-item" href="#" onclick="collegeChosen(2)">Academic Affairs</a>
+                                </div>
+                            </div>
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Dean
+                                </a>
+                                <div id="deanDD" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="ddd1" class="dropdown-item" href="#" onclick="setDean(1)">Brian Bennett</a>
+                                    <a id="ddd2" class="dropdown-item" href="#" onclick="setDean(2)">Phil Pfeiffer</a>
+                                    <a id="ddd3" class="dropdown-item" href="#" onclick="setDean(3)">Tony Pittarese</a>
+                                </div>
+                            </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#mcoModal">Back</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--chairselectModal-->
+        <div class="modal fade" id="chairchangeModal" tabindex="-1" role="dialog" aria-labelledby="ccModalLabel" aria-hidden="true">
+            <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="ccModalLabel" style="color:black">Change Chair</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body" style="color:black;">
+                        
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Department
+                                </a>
+                                <div id="deptdd" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="deptdd1" class="dropdown-item" href="#" onclick="">Computing</a>
+                                    <a id="deptdd2" class="dropdown-item" href="#" onclick="">Business</a>
+                                </div>
+                            </div>
+                            <div id="chairdropdown" class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Select Dean
+                                </a>
+                                <div id="chairDD" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="cdd1" class="dropdown-item" href="#" onclick="setChair(1)">Brian Bennett</a>
+                                    <a id="cdd2" class="dropdown-item" href="#" onclick="setChair(2)">Phil Pfeiffer</a>
+                                    <a id="cdd3" class="dropdown-item" href="#" onclick="setChair(3)">Tony Pittarese</a>
+                                    <a id="cdd4" class="dropdown-item" href="#" onclick="setChair(4)">David Tarnoff</a>
+                                    <a id="cdd5" class="dropdown-item" href="#" onclick="setChair(5)">Chris Wallace</a>
+                                </div>
+                            </div>
+
+                    </div>
+                    <div class="modal-footer">
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#mcoModal">Back</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Change</button>
+                    </div>
+                </div>
+            </div>
+        </div>
         <!-- Add Remove Proxy Modal-->
         <div class="modal fade" id="manageproxyModal" tabindex="-1" role="dialog" aria-labelledby="mpModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -321,8 +428,8 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addacademicModal2" onclick="">Add Academic</a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addproModal2" onclick="">Add Professional</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="addacademicModal2" onclick="">Update Academic</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="addacademicModal2" onclick="">Update Professional</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editacademicModal2" onclick="">Update Academic</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal2" onclick="">Update Professional</a>
             </div>
         </div>
         <br />
@@ -339,15 +446,15 @@
                     </div>
                     <div class="modal-body" style="color:black;">
                         <strong>
-                            <label>Faculty Full Name</label>
+                            <label>Faculty Full Name &emsp; &emsp; &nbsp; &emsp; &nbsp; &nbsp;</label>
                             <input type="textbox" id="tbFName"><br />
-                            <label>Department</label>
+                            <label>Department &emsp; &nbsp; &emsp; &nbsp; &emsp; &nbsp; &emsp; &nbsp; &nbsp;&nbsp;</label>
                             <input type="textbox" id="tbDept"><br />
                             <label>College - Major - Date Completed</label>
                             <input type="textbox" id="tbCollege"><br />
-                            <label>College Level</label>
+                            <label>College Level &emsp; &emsp; &nbsp; &emsp; &nbsp; &emsp; &emsp;&nbsp;</label>
                             <input type="textbox" id="tbCLevel"><br />
-                            <label>File Location of Transcript</label>
+                            <label>File Location of Transcript &nbsp; &emsp;</label>
                             <input type="textbox" id="tbTranscript"><br />
 
 
@@ -355,7 +462,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
                         <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
                     </div>
                 </div>
@@ -374,15 +480,15 @@
                     </div>
                     <div class="modal-body" style="color:black;">
                         <strong>
-                            <label>Faculty Full Name</label>
+                            <label>Faculty Full Name &emsp;&emsp;&emsp; </label>
                             <input type="textbox" id="tbFName2"><br />
-                            <label>Department</label>
+                            <label>Department &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; </label>
                             <input type="textbox" id="tbDept2"><br />
                             <label>Company - Title - Years Worked</label>
                             <input type="textbox" id="tbCompany"><br />
-                            <label>Applicable to Classes</label>
+                            <label>Applicable to Classes &emsp;&emsp;&nbsp; </label>
                             <input type="textbox" id="tbClasses"><br />
-                            <label>File Location of Resume</label>
+                            <label>File Location of Resume &emsp; </label>
                             <input type="textbox" id="tbResume"><br />
 
 
@@ -397,43 +503,13 @@
             </div>
         </div>
         <!--Faculty  Select-->
-        <div class="modal fade" id="selectfacultyModal2" tabindex="-1" role="dialog" aria-labelledby="sfModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="sfModalLabel" style="color:black">Select Faculty</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" style="color:black;">
-                        <strong>
-                            <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Proxy Selection
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
-                                </div>
-                            </div>
-                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
-                            <!-- javascript should be in these files-->
-                        </strong>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Select</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+        
         <!--Edit Academic-->
-        <div class="modal fade" id="editacademicModal2" tabindex="-1" role="dialog" aria-labelledby="eaModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editacademicModal2" tabindex="-1" role="dialog" aria-labelledby="eaModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="eaModalLabel" style="color:black">Update Academic Faculty</h5>
+                        <h5 class="modal-title" id="eaModalLabel2" style="color:black">Update Academic Faculty</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -450,11 +526,12 @@
                                     <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
                                 </div>
                             </div>
-                            <label>Department</label>
+                            <br/><br/>
+                            <label>Department &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
                             <input type="textbox" id="tbDept3" disabled><br />
                             <label>College - Major - Date Completed</label>
                             <input type="textbox" id="tbCollege3"><br />
-                            <label>College Level</label>
+                            <label>College Level &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
                             <input type="textbox" id="tbCLevel3"><br />
                             <label>File Location of Transcript</label>
                             <input type="textbox" id="tbTranscript3"><br />
@@ -471,11 +548,11 @@
             </div>
         </div>
         <!--Edit Professional-->
-        <div class="modal fade" id="editproModal" tabindex="-1" role="dialog" aria-labelledby="epModalLabel" aria-hidden="true">
+        <div class="modal fade" id="editproModal2" tabindex="-1" role="dialog" aria-labelledby="epModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="epModalLabel" style="color:black">Add Professional Faculty</h5>
+                        <h5 class="modal-title" id="epModalLabel2" style="color:black">Update Professional Faculty</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
@@ -492,13 +569,14 @@
                                     <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
                                 </div>
                             </div>
-                            <label>Department</label>
+                            <br/><br/>
+                            <label>Department &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
                             <input type="textbox" id="tbDept4" disabled><br />
                             <label>Company - Title - Years Worked</label>
                             <input type="textbox" id="tbCompany4"><br />
-                            <label>Applicable to Classes</label>
+                            <label>Applicable to Classes &emsp;&nbsp;&nbsp;</label>
                             <input type="textbox" id="tbClasses4"><br />
-                            <label>File Location of Resume</label>
+                            <label>File Location of Resume &nbsp;</label>
                             <input type="textbox" id="tbResume4"><br />
 
 
@@ -506,7 +584,6 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
                         <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
                     </div>
                 </div>
@@ -521,10 +598,10 @@
                 Faculty Credentials
             </a>
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                <a class="dropdown-item" href="#" onclick="">Add Academic</a>
-                <a class="dropdown-item" href="#" onclick="">Add Professional</a>
-                <a class="dropdown-item" href="#" onclick="">Update Academic</a>
-                <a class="dropdown-item" href="#" onclick="">Update Professional</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addacademicModal" onclick="">Add Academic</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addproModal" onclick="">Add Professional</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editacademicModal" onclick="">Update Academic</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal" onclick="">Update Professional</a>
             </div>
         </div>
         <!--Modals-->
@@ -667,7 +744,7 @@
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
                     <div class="modal-header">
-                        <h5 class="modal-title" id="epModalLabel" style="color:black">Add Professional Faculty</h5>
+                        <h5 class="modal-title" id="epModalLabel" style="color:black">Update Professional Faculty</h5>
                         <button type="button" class="close" data-dismiss="modal" aria-label="Close">
                             <span aria-hidden="true">&times;</span>
                         </button>
