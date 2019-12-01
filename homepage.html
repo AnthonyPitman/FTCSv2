@@ -778,6 +778,9 @@
         var hidDiv = document.getElementById("hide");
         //--------------------------------------------
         //---Global State Objects---------------------
+        //college = "CBAT";
+        //dept = "Computing";
+        proxySet = "none";
         var userLogon = {
             loggedin: false,
             loggedout: true,
@@ -803,6 +806,16 @@
             type: "officer",
             id: 770,
         };
+        var collegeDean = {
+            college = "CBAT",
+            dean = "Tony Pittarese",
+        };
+        var deptChair = {
+            dept = "Computing",
+            chair = "Brian Bennett",
+        }
+        var collegeDeans = new Array();
+        var deptChairs = new Array();
         //----------------------------------------------
         function toggle_visibility() {
             if (userLogon.loggedin == true && userLogon.loggedout == false) {
@@ -831,8 +844,6 @@
 
         }
 
-
-        // 20. Use console.log() to print the penguin's name to the console as part of a welcome message, like "Hello, I'm a penguin and my name is [NAME HERE]!"
 
 
 
@@ -994,7 +1005,31 @@
             document.getElementById("isrc").setAttribute("src", url[n]);
             alert(url[n]);
         }
-
+        //------Choosers--------------------
+        function chooser(id, choice2) {
+            var inner = document.getElementBy("" + id + choice2).innerHTML;
+            return inner;
+        }
+        function collegeChosen(choice1) {
+            //ccd
+            collegeDean.college = chooser("ccd", choice1);
+        }
+        function deptChosen(choice3) {
+            //deptdd
+            deptChair.dept = chooser("deptdd", choice3);
+        }
+        function proxyChosen(choice4) {
+            //pdd
+            proxySet = chooser("ppd", choice4);
+        }
+        function setChair(choice5) {
+            //cdd
+            deptChair.chair = chooser("cdd", choice5);
+        }
+        function setDean(choice6) {
+            //ddd
+            collegeDean.dean = chooser("ddd", choice6);
+        }
         _</script>
 
 
