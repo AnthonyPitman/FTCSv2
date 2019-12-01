@@ -249,8 +249,8 @@
                                     Department
                                 </a>
                                 <div id="deptdd" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="deptdd1" class="dropdown-item" href="#" onclick="">Computing</a>
-                                    <a id="deptdd2" class="dropdown-item" href="#" onclick="">Business</a>
+                                    <a id="deptdd1" class="dropdown-item" href="#" onclick="deptChosen(1)">Computing</a>
+                                    <a id="deptdd2" class="dropdown-item" href="#" onclick="deptChosen(2)">Business</a>
                                 </div>
                             </div>
                             <div id="chairdropdown" class="dropdown show" style="margin:auto;padding-left:45%">
@@ -314,9 +314,9 @@
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Proxy Selection
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a class="dropdown-item" href="#" onclick="">Tony Pittarese</a>
-                                    <a class="dropdown-item" href="#" onclick="">Brian Bennett</a>
+                                <div id="proxydd" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="pdd1" class="dropdown-item" href="#" onclick="proxyChosen(1)">Tony Pittarese</a>
+                                    <a id="pdd2" class="dropdown-item" href="#" onclick="proxyChosen(2)">Brian Bennett</a>
                                 </div>
                             </div>
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
@@ -325,7 +325,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Select</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="prefillProxy()">Select</button>
                     </div>
                 </div>
             </div>
@@ -343,16 +343,16 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>UserName </label>
-                            <input type="textbox" id="tb1" disabled><br />
+                            <input type="textbox" id="tbProxy" disabled><br />
                             <label>Password &nbsp</label>
-                            <input type="password" id="pw1" disabled>
+                            <input type="password" id="pwProxy" disabled>
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
                             <!-- javascript should be in these files-->
                         </strong>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Login</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyLogin()">Login</button>
                     </div>
                 </div>
             </div>
@@ -379,7 +379,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyAdd()">Add</button>
                     </div>
                 </div>
             </div>
@@ -400,9 +400,9 @@
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Proxy Selection
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                <div id="nixSelect" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="nixUser1" class="dropdown-item" href="#" onclick="proxyNixed(1)">bHill</a>
+                                    <a id="nixUser2" class="dropdown-item" href="#" onclick="proxyNixed(2)">vBill</a>
                                 </div>
                             </div>
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
@@ -412,7 +412,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Remove</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="proxyRemove()">Remove</button>
                     </div>
                 </div>
             </div>
@@ -462,7 +462,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addAcademic()">Add</button>
                     </div>
                 </div>
             </div>
@@ -497,7 +497,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addProfessional()">Add</button>
                     </div>
                 </div>
             </div>
@@ -521,7 +521,7 @@
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Faculty Name
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div id="acadList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
                                     <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
                                 </div>
@@ -542,7 +542,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Save</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editAcademic()">Save</button>
                     </div>
                 </div>
             </div>
@@ -564,7 +564,7 @@
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Faculty Name
                                 </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                <div id="proList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                                     <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
                                     <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
                                 </div>
@@ -584,7 +584,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editProfessional();">Save</button>
                     </div>
                 </div>
             </div>
@@ -633,7 +633,7 @@
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addAcademic()">Add</button>
                     </div>
                 </div>
             </div>
@@ -652,7 +652,16 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <input type="textbox" id="tbFName7"><br />
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Faculty Name
+                                </a>
+                                <div id="proList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
+                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                </div>
+                            </div>
+                            <br /><br />
                             <label>Department</label>
                             <input type="textbox" id="tbDept7"><br />
                             <label>Company - Title - Years Worked</label>
@@ -668,43 +677,12 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addProfessional()">Add</button>
                     </div>
                 </div>
             </div>
         </div>
-        <!--Faculty  Select-->
-        <div class="modal fade" id="selectfacultyModal" tabindex="-1" role="dialog" aria-labelledby="sfModalLabel" aria-hidden="true">
-            <div class="modal-dialog" role="document">
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <h5 class="modal-title" id="sfModalLabel" style="color:black">Select Faculty</h5>
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                    </div>
-                    <div class="modal-body" style="color:black;">
-                        <strong>
-                            <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Proxy Selection
-                                </a>
-                                <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
-                                </div>
-                            </div>
-                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
-                            <!-- javascript should be in these files-->
-                        </strong>
-                    </div>
-                    <div class="modal-footer">
-                        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Select</button>
-                    </div>
-                </div>
-            </div>
-        </div>
+
         <!--Edit Academic-->
         <div class="modal fade" id="editacademicModal" tabindex="-1" role="dialog" aria-labelledby="eaModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -718,7 +696,16 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <input type="textbox" id="tbFName3" disabled><br />
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Faculty Name
+                                </a>
+                                <div id="acadList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
+                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                </div>
+                            </div>
+                            <br /><br />
                             <label>Department</label>
                             <input type="textbox" id="tbDept3" disabled><br />
                             <label>College - Major - Date Completed</label>
@@ -734,7 +721,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Save</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editAcademic()">Save</button>
                     </div>
                 </div>
             </div>
@@ -768,7 +755,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editProfessional()">Add</button>
                     </div>
                 </div>
             </div>
