@@ -428,8 +428,8 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addacademicModal2" onclick="">Add Academic</a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addproModal2" onclick="">Add Professional</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editacademicModal2" onclick="">Update Academic</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal2" onclick="">Update Professional</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editacademicModal2" onclick="prefillAcademic(2)">Update Academic</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal2" onclick="prefillProfession(2)">Update Professional</a>
             </div>
         </div>
         <br />
@@ -497,7 +497,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addProfessional()">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addProfessional(2)">Add</button>
                     </div>
                 </div>
             </div>
@@ -565,8 +565,7 @@
                                     Faculty Name
                                 </a>
                                 <div id="proList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                    
                                 </div>
                             </div>
                             <br/><br/>
@@ -600,8 +599,8 @@
             <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addacademicModal" onclick="">Add Academic</a>
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#addproModal" onclick="">Add Professional</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editacademicModal" onclick="">Update Academic</a>
-                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal" onclick="">Update Professional</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editacademicModal" onclick="prefillAcademic(1)">Update Academic</a>
+                <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal" onclick="prefillProfessional(1)">Update Professional</a>
             </div>
         </div>
         <!--Modals-->
@@ -652,16 +651,7 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                    Faculty Name
-                                </a>
-                                <div id="proList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
-                                </div>
-                            </div>
-                            <br /><br />
+                            <input type="textbox" id="tbFName7" disabled><br />
                             <label>Department</label>
                             <input type="textbox" id="tbDept7"><br />
                             <label>Company - Title - Years Worked</label>
@@ -677,7 +667,7 @@
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addProfessional()">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="addProfessional(7)">Add</button>
                     </div>
                 </div>
             </div>
@@ -701,19 +691,18 @@
                                     Faculty Name
                                 </a>
                                 <div id="acadList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                    
                                 </div>
                             </div>
                             <br /><br />
                             <label>Department</label>
-                            <input type="textbox" id="tbDept3" disabled><br />
+                            <input type="textbox" id="tbDept8" disabled><br />
                             <label>College - Major - Date Completed</label>
-                            <input type="textbox" id="tbCollege3"><br />
+                            <input type="textbox" id="tbCollege8"><br />
                             <label>College Level</label>
-                            <input type="textbox" id="tbCLevel3"><br />
+                            <input type="textbox" id="tbCLevel8"><br />
                             <label>File Location of Transcript</label>
-                            <input type="textbox" id="tbTranscript3"><br />
+                            <input type="textbox" id="tbTranscript8"><br />
 
 
                         </strong>
@@ -739,15 +728,26 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <input type="textbox" id="tbFName4" disabled><br />
+                            <div class="dropdown show" style="margin:auto;padding-left:45%">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                    Faculty Name
+                                </a>
+                                <div id="proList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+
+                                </div>
+                            </div>
+                            <br />
+                            <p id="proSelect"></p>
+                            <br />
+                            
                             <label>Department</label>
-                            <input type="textbox" id="tbDept4" disabled><br />
+                            <input type="textbox" id="tbDept5" disabled><br />
                             <label>Company - Title - Years Worked</label>
-                            <input type="textbox" id="tbCompany4"><br />
+                            <input type="textbox" id="tbCompany5"><br />
                             <label>Applicable to Classes</label>
-                            <input type="textbox" id="tbClasses4"><br />
+                            <input type="textbox" id="tbClasses5"><br />
                             <label>File Location of Resume</label>
-                            <input type="textbox" id="tbResume4"><br />
+                            <input type="textbox" id="tbResume5"><br />
 
 
                         </strong>
@@ -783,6 +783,9 @@
         proxySet = "none";
         proxyUser = "gtg";
         proxyUsers = new Array();
+        acadIndex = 0; //global index academics
+        proIndex = 0;  //global index professionals
+        proxyIndex = 0; //global index proxyUsers
         var userLogon = {
             loggedin: false,
             loggedout: true,
@@ -1079,6 +1082,124 @@
         function proxyAdd() {
             proxyUser = getInput("tbAdd");
             proxyUsers.push(proxyUser);
+        }
+        //------Prefills------
+        function additemSelect(divId, idSeed, innerValue, clickFunction, index1) {
+            
+            var createA = document.createElement("A");
+            createA.setAttribute = ("class", "dropdown-item")
+            createA.setAttribute("id", "" + idSeed + index1);
+            createA.setAttribute("href", "#");
+            createA.setAttribute("onclick", clickfunction);
+            createA.textContent = innerValue;
+            document.getElementById(divId).appendChild(createA);
+            
+        }
+        function setInput(id8, innerValue2) {
+            document.getElementById(id8).setAttribute("value", innerValue2);
+        }
+        function nixProxyIndex(index5) {
+            proxyIndex = index5;
+        }
+        function prefillProxy() {
+            var k;
+            for (k = 0; k < proxyUsers.length; k++) {
+                additemSelect("nixSelect", "nixUser", proxyUsers[k], "nixProxyIndex(" + k + ")", k);
+            }
+        }
+        function prefillAcademic(num4) {
+            var j;
+            var n;
+            if (num4 == 1) {
+                //selection div for submenu 2
+                for (j = 0; j < academics.length; j++) {
+                    additemSelect("acadlist1", "ac", academics[j].name, "acadChosen(1, " + j + ")", j);
+                }
+            } else {
+                //selection div for submenu 1
+                for (n = 0; n < academics.length; n++) {
+                    additemSelect("acadlist2", "acl", academics[n].name, "proChosen(1, " + n + ")", n);
+                }
+            }
+        }
+        function prefillProfessional(num5) {
+            var l;
+            var m;
+            if (num5 == 1) {
+                //selection div for submenu 1
+                for (l = 0; l < professionals.length; l++) {
+                    additemSelect("prolist1", "pl", professionals[l].name, "proChosen(1, " + l + ")", l);
+                }
+            } else {
+                //selection div for submenu 2
+                for (m = 0; m < professionals.length; m++) {
+                    additemSelect("prolist2", "pl", professionals[m].name, "proChosen(2, " + m + ")", m);
+                }
+            }
+        }
+        function proChosen(num7, index7) {
+            proIndex = index7;
+            if (num7 == 1) {
+                setInput("tbDept5", professionals[proIndex].dept);
+                setInput("tbCompany5", professionals[proIndex].company);
+                setInput("tbClasses5", professionals[proIndex].classesA);
+                setInput("tbResume5", professionals[proIndex].fileURL);
+            } else {
+                setInput("tbDept4", professionals[proIndex].dept);
+                setInput("tbCompany4", professionals[proIndex].company);
+                setInput("tbClasses4", professionals[proIndex].classesA);
+                setInput("tbResume4", professionals[proIndex].fileURL);
+            }
+        }
+        function acadChosen(num6, index6) {
+            acadIndex = index6;
+            if (num6 == 1) {
+                setInput("tbDept8", academics[acadIndex].dept);
+                setInput("tbCollege8", academics[acadIndex].college);
+                setInput("tbCLevel8", academics[proIndex].level);
+                setInput("tbTranscript8", academics[proIndex].fileURL);
+            } else {
+                setInput("tbDept3", academics[acadIndex].dept);
+                setInput("tbCollege3", academics[acadIndex].college);
+                setInput("tbCLevel3", academics[acadIndex].level);
+                setInput("tbTranscript3", academics[acadIndex].fileURL);
+            }
+        }
+        function editProfessional(num7) {
+            if (confirm("Are you sure you wish to alter "+ professionals[proIndex].name+ "'s information?")) {
+                if (num7 == 1) {
+                    professionals[proIndex].dept = getInput("tbDept5");
+                    professionals[proIndex].company = getInput("tbCompany5");
+                    professionals[proIndex].classesA = getInput("tbClasses5");
+                    professionals[proIndex].fileURL = getInput("tbResume5");
+                } else {
+                    professionals[proIndex].dept = getInput("tbDept4");
+                    professionals[proIndex].company = getInput("tbCompany4");
+                    professionals[proIndex].classesA = getInput("tbClasses4");
+                    professionals[proIndex].fileURL = getInput("tbResume4");
+                }
+            ]
+        }
+        function editAcademic(num6) {
+            if (confirm("Are you sure you wish to alter "+ academics[acadIndex].name+ "'s information?")) {
+                if (num6 == 1) {
+                academics[acadIndex].dept = getInput("tbDept8");
+                academics[acadIndex].college = getInput("tbCollege8");
+                academics[proIndex].level = getInput("tbCLevel8");
+                academics[proIndex].fileURL = getInput("tbTranscript8");
+                 } else {
+                academics[acadIndex].dept = getInput("tbDept3");
+                academics[acadIndex].college = getInput("tbCollege3");
+                academics[acadIndex].level = getInput("tbCLevel3");
+                academics[acadIndex].fileURL = getInput("tbTranscript3");
+                }
+            }
+            
+        }
+        //----Remove------
+        function proxyRemove(){
+            proxyUsers(proxyIndex, 1);
+            document.getElementById("nixSelect").innerHTML = "";
         }
         _</script>
 
