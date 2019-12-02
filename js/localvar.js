@@ -4,9 +4,9 @@ function localWrite() {
    localStorage.setItem("userName", "guest");
    localStorage.setItem("pass", "#");
 }
-function localLogon(role, log, user){
+function localLogon(role, user){
     localStorage.setItem("userRole", role);
-    localStorage.setItem("loggedIn", log);
+    localStorage.setItem("loggedIn", "YES");
     localStorage.setItem("userName", user);
 }
 function localLogoff() {

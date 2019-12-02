@@ -10,14 +10,21 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
     <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
     <script src="js/localvar.js"></script>
+    <script src="reports/reports.js"></script>
+    <script src="js/mainfile.js"></script>
+    <script src="js/login2.js"></script>
     <style>
-        .row{
+        .row {
             height: 600px;
         }
     </style>
 </head>
 <body>
-
+    <script>//---------Globals------------------------------
+var userBox = document.getElementById('text1');
+var passBox = document.getElementById('pass1');
+var tasks = document.getElementById("tasksfill");
+   </script>
     <nav class="navbar navbar-expand-sm bg-dark navbar-dark">
         <a class="navbar-brand" href="homepage.html">
             <img src="FTCS_Home.PNG" alt="FTCS Logo" style="width:40px;">
@@ -33,7 +40,7 @@
                 <a class="nav-link" href="contact.html">Contact us</a>
             </li>
             <li class="nav-item">
-                <button type="button" class="nav-link btn btn-primary" data-toggle="modal" data-target="#loginModal" onclick="log_out">Sign In</button>
+                <button type="button" class="nav-link btn btn-primary" data-toggle="modal" data-target="#loginModal" onclick="log_out();">Sign In</button>
                 <!-- Modal -->
                 <div class="modal fade" id="loginModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
                     <div class="modal-dialog" role="document">
@@ -47,14 +54,14 @@
                             <div class="modal-body" style="color:black;">
                                 <strong>
                                     <label>UserName </label>
-                                    <input type="textbox" id="tb1"><br />
+                                    <input type="text" id="text1" value=""></input><br />
                                     <label>Password &nbsp</label>
-                                    <input type="password" id="pw1">
+                                    <input type="password" id="pass1" value=""></input>
                                 </strong>
                             </div>
                             <div class="modal-footer">
                                 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                                <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="modify();">Login</button>
+                                <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="modify()">Login</button>
                             </div>
                         </div>
                     </div>
@@ -63,21 +70,7 @@
 
         </ul>
     </nav>
-    <!--
-    <script>
-        $(function () {
-            $('#lb1').on('click', function (event) {
-                modify();
-                $('#loginModal').modal('hide');
-                alert();
-                event.preventDefault();
-
-
-            });
-
-        });
-
-    </script> -->
+    
     <header><h1>Faculty Teaching Credentials System</h1></header>
 
 
@@ -309,7 +302,7 @@
                         </button>
                     </div>
                     <div class="modal-body" style="color:black;">
-                        <strong>
+                        
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Proxy Selection
@@ -321,7 +314,7 @@
                             </div>
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
                             <!-- javascript should be in these files-->
-                        </strong>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -343,7 +336,7 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>UserName </label>
-                            <input type="textbox" id="tbProxy" disabled><br />
+                            <input type="text" id="tbProxy" disabled><br />
                             <label>Password &nbsp</label>
                             <input type="password" id="pwProxy" disabled>
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
@@ -370,7 +363,7 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Input New Proxy UserName </label>
-                            <input type="textbox" id="tbAdd"><br />
+                            <input type="text" id="tbAdd"><br />
 
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
                             <!-- javascript should be in these files-->
@@ -395,7 +388,7 @@
                         </button>
                     </div>
                     <div class="modal-body" style="color:black;">
-                        <strong>
+                        
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                                     Proxy Selection
@@ -405,9 +398,8 @@
                                     <a id="nixUser2" class="dropdown-item" href="#" onclick="proxyNixed(2)">vBill</a>
                                 </div>
                             </div>
-                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
-                            <!-- javascript should be in these files-->
-                        </strong>
+                            
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -433,8 +425,6 @@
             </div>
         </div>
         <br />
-        <!--Modals-->
-        <!-- Add Academic Modal-->
         <div class="modal fade" id="addacademicModal2" tabindex="-1" role="dialog" aria-labelledby="aaModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -447,17 +437,15 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name &emsp; &emsp; &nbsp; &emsp; &nbsp; &nbsp;</label>
-                            <input type="textbox" id="tbFName1"><br />
+                            <input type="text" id="tbFName1"><br />
                             <label>Department &emsp; &nbsp; &emsp; &nbsp; &emsp; &nbsp; &emsp; &nbsp; &nbsp;&nbsp;</label>
-                            <input type="textbox" id="tbDept1"><br />
+                            <input type="text" id="tbDept1"><br />
                             <label>College - Major - Date Completed</label>
-                            <input type="textbox" id="tbCollege1"><br />
+                            <input type="text" id="tbCollege1"><br />
                             <label>College Level &emsp; &emsp; &nbsp; &emsp; &nbsp; &emsp; &emsp;&nbsp;</label>
-                            <input type="textbox" id="tbCLevel1"><br />
+                            <input type="text" id="tbCLevel1"><br />
                             <label>File Location of Transcript &nbsp; &emsp;</label>
-                            <input type="textbox" id="tbTranscript1"><br />
-
-
+                            <input type="text" id="tbTranscript1"><br />
                         </strong>
                     </div>
                     <div class="modal-footer">
@@ -467,7 +455,6 @@
                 </div>
             </div>
         </div>
-        <!--Add Professional Modal-->
 
         <div class="modal fade" id="addproModal2" tabindex="-1" role="dialog" aria-labelledby="proModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -481,15 +468,15 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name &emsp;&emsp;&emsp; </label>
-                            <input type="textbox" id="tbFName2"><br />
+                            <input type="text" id="tbFName2"><br />
                             <label>Department &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp; </label>
-                            <input type="textbox" id="tbDept2"><br />
+                            <input type="text" id="tbDept2"><br />
                             <label>Company - Title - Years Worked</label>
-                            <input type="textbox" id="tbCompany"><br />
+                            <input type="text" id="tbCompany"><br />
                             <label>Applicable to Classes &emsp;&emsp;&nbsp; </label>
-                            <input type="textbox" id="tbClasses"><br />
+                            <input type="text" id="tbClasses"><br />
                             <label>File Location of Resume &emsp; </label>
-                            <input type="textbox" id="tbResume"><br />
+                            <input type="text" id="tbResume"><br />
 
 
                         </strong>
@@ -502,9 +489,6 @@
                 </div>
             </div>
         </div>
-        <!--Faculty  Select-->
-        
-        <!--Edit Academic-->
         <div class="modal fade" id="editacademicModal2" tabindex="-1" role="dialog" aria-labelledby="eaModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -515,7 +499,7 @@
                         </button>
                     </div>
                     <div class="modal-body" style="color:black;">
-                        <strong>
+                        
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -528,16 +512,16 @@
                             </div>
                             <br/><br/>
                             <label>Department &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
-                            <input type="textbox" id="tbDept3" disabled><br />
+                            <input type="text" id="tbDept3" disabled><br />
                             <label>College - Major - Date Completed</label>
-                            <input type="textbox" id="tbCollege3"><br />
+                            <input type="text" id="tbCollege3"><br />
                             <label>College Level &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
-                            <input type="textbox" id="tbCLevel3"><br />
+                            <input type="text" id="tbCLevel3"><br />
                             <label>File Location of Transcript</label>
-                            <input type="textbox" id="tbTranscript3"><br />
+                            <input type="text" id="tbTranscript3"><br />
 
 
-                        </strong>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -547,7 +531,6 @@
                 </div>
             </div>
         </div>
-        <!--Edit Professional-->
         <div class="modal fade" id="editproModal2" tabindex="-1" role="dialog" aria-labelledby="epModalLabel2" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -558,7 +541,7 @@
                         </button>
                     </div>
                     <div class="modal-body" style="color:black;">
-                        <strong>
+                        
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -570,16 +553,13 @@
                             </div>
                             <br/><br/>
                             <label>Department &emsp;&emsp;&emsp;&emsp;&emsp;&nbsp;&nbsp;</label>
-                            <input type="textbox" id="tbDept4" disabled><br />
+                            <input type="text" id="tbDept4" disabled><br />
                             <label>Company - Title - Years Worked</label>
-                            <input type="textbox" id="tbCompany4"><br />
+                            <input type="text" id="tbCompany4"><br />
                             <label>Applicable to Classes &emsp;&nbsp;&nbsp;</label>
-                            <input type="textbox" id="tbClasses4"><br />
+                            <input type="text" id="tbClasses4"><br />
                             <label>File Location of Resume &nbsp;</label>
-                            <input type="textbox" id="tbResume4"><br />
-
-
-                        </strong>
+                            <input type="text" id="tbResume4"><br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -603,8 +583,7 @@
                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#editproModal" onclick="prefillProfessional(1)">Update Professional</a>
             </div>
         </div>
-        <!--Modals-->
-        <!-- Add Academic Modal-->
+
         <div class="modal fade" id="addacademicModal" tabindex="-1" role="dialog" aria-labelledby="aaModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
                 <div class="modal-content">
@@ -617,15 +596,15 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <input type="textbox" id="tbFName6"><br />
+                            <input type="text" id="tbFName6"><br />
                             <label>Department</label>
-                            <input type="textbox" id="tbDept6"><br />
+                            <input type="text" id="tbDept6"><br />
                             <label>College - Major - Date Completed</label>
-                            <input type="textbox" id="tbCollege6"><br />
+                            <input type="text" id="tbCollege6"><br />
                             <label>College Level</label>
-                            <input type="textbox" id="tbCLevel6"><br />
+                            <input type="text" id="tbCLevel6"><br />
                             <label>File Location of Transcript</label>
-                            <input type="textbox" id="tbTranscript6"><br />
+                            <input type="text" id="tbTranscript6"><br />
 
 
                         </strong>
@@ -637,7 +616,7 @@
                 </div>
             </div>
         </div>
-        <!--Add Professional Modal-->
+   
 
         <div class="modal fade" id="addproModal" tabindex="-1" role="dialog" aria-labelledby="proModalLabel" aria-hidden="true">
             <div class="modal-dialog" role="document">
@@ -651,15 +630,15 @@
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <input type="textbox" id="tbFName7" disabled><br />
+                            <input type="text" id="tbFName7" disabled><br />
                             <label>Department</label>
-                            <input type="textbox" id="tbDept7"><br />
+                            <input type="text" id="tbDept7"><br />
                             <label>Company - Title - Years Worked</label>
-                            <input type="textbox" id="tbCompany7"><br />
+                            <input type="text" id="tbCompany7"><br />
                             <label>Applicable to Classes</label>
-                            <input type="textbox" id="tbClasses7"><br />
+                            <input type="text" id="tbClasses7"><br />
                             <label>File Location of Resume</label>
-                            <input type="textbox" id="tbResume7"><br />
+                            <input type="text" id="tbResume7"><br />
 
 
                         </strong>
@@ -684,7 +663,7 @@
                         </button>
                     </div>
                     <div class="modal-body" style="color:black;">
-                        <strong>
+                        
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -696,16 +675,13 @@
                             </div>
                             <br /><br />
                             <label>Department</label>
-                            <input type="textbox" id="tbDept8" disabled><br />
+                            <input type="text" id="tbDept8" disabled><br />
                             <label>College - Major - Date Completed</label>
-                            <input type="textbox" id="tbCollege8"><br />
+                            <input type="text" id="tbCollege8"><br />
                             <label>College Level</label>
-                            <input type="textbox" id="tbCLevel8"><br />
+                            <input type="text" id="tbCLevel8"><br />
                             <label>File Location of Transcript</label>
-                            <input type="textbox" id="tbTranscript8"><br />
-
-
-                        </strong>
+                            <input type="text" id="tbTranscript8"><br />
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -726,7 +702,7 @@
                         </button>
                     </div>
                     <div class="modal-body" style="color:black;">
-                        <strong>
+                        
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -741,21 +717,21 @@
                             <br />
                             
                             <label>Department</label>
-                            <input type="textbox" id="tbDept5" disabled><br />
+                            <input type="text" id="tbDept5" disabled><br />
                             <label>Company - Title - Years Worked</label>
-                            <input type="textbox" id="tbCompany5"><br />
+                            <input type="text" id="tbCompany5"><br />
                             <label>Applicable to Classes</label>
-                            <input type="textbox" id="tbClasses5"><br />
+                            <input type="text" id="tbClasses5"><br />
                             <label>File Location of Resume</label>
-                            <input type="textbox" id="tbResume5"><br />
+                            <input type="text" id="tbResume5"><br />
 
 
-                        </strong>
+                        
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editProfessional()">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary"  data-dismiss="modal" onclick="editProfessional()">Add</button>
                     </div>
                 </div>
             </div>
@@ -764,444 +740,9 @@
 
         <br />
     </template>
-    <script src="js/login2.js" type="text/javascript">
-
-    </script>
-    <script src="reports/reports.js"></script>
-    <script type="text/javascript">
-        //---------Globals------------------------------
-        var logoff = document.getElementById('lb2');
-        var logon = document.getElementById('lb1');
-        var biglogon = document.getElementById('lbb3');
-        var userBox = document.getElementById('tb1');
-        var passBox = document.getElementById('pw1');
-        var hidDiv = document.getElementById("hide");
-        //--------------------------------------------
-        //---Global State Objects---------------------
-        //college = "CBAT";
-        //dept = "Computing";
-        proxySet = "none";
-        proxyUser = "gtg";
-        proxyUsers = new Array();
-        acadIndex = 0; //global index academics
-        proIndex = 0;  //global index professionals
-        proxyIndex = 0; //global index proxyUsers
-        var userLogon = {
-            loggedin: false,
-            loggedout: true,
-            type: "guest",
-            id: 0,
-            userName: "#",
-        };
-        var administrator = {
-            userName: "testAdmin",
-            password: "test",
-            type: "admin",
-            id: 990,
-        };
-        var dean = {
-            userName: "testDean",
-            password: "test",
-            type: "dean",
-            id: 880,
-        };
-        var officer = {
-            userName: "testOfficer",
-            password: "test",
-            type: "officer",
-            id: 770,
-        };
-        var collegeDean = {
-            college = "CBAT",
-            dean = "Tony Pittarese",
-        };
-        var deptChair = {
-            dept = "Computing",
-            chair = "Brian Bennett",
-        }
-       /* var faculty = {
-            id = 700,
-            name = "Joe Doe",
-            type = "academic",
-        };*/
-        var academic = {
-            name = "Joe Doe",
-            dept = "Digital Media",
-            college = "College of Fine Arts - Digital Arts - 1999",
-            level = "PhD",
-            fileURL = "file:///C:/JoeDoe1999transcript.txt",
-        }
-        var professional = {
-            name = "John Dunn",
-            dept = "Computing",
-            company = "Bristol Motor City Data Entry - Data Entry Professional - 5 years",
-            classesA = "Computer Data Entry - Course Section TBA",
-            fileURL = "file:///C:/motorcitydunnresume2018.txt",
-        }
-        var academics = new Array();
-        var professionals = new Array();
-        //var faculties = new Array();
-        var collegeDeans = new Array();
-        var deptChairs = new Array();
-        //----------------------------------------------
-        function toggle_visibility() {
-            if (userLogon.loggedin == true && userLogon.loggedout == false) {
-                biglogon.style.display = "none";
-                logoff.style.visibility = "visible";
-                logoff.style.display = "inline";
-                logoff.hidden = false;
-                logon.style.visibility = "hidden";
-                userBox.style.visibility = "hidden";
-                passBox.style.visibility = "hidden";
-
-            }
-            if (userLogon.loggedin == false && userLogon.loggedout == true) {
-                biglogon.style.display = "inline";
-                logoff.style.visibility = "hidden";
-                logoff.style.display = "inline";
-                logoff.hidden = false;
-                logon.style.visibility = "visible";
-                userBox.style.visibility = "visible";
-                passBox.style.visibility = "visible";
-
-            }
-            if (userLogon.loggedin == true && userLogon.loggedout == true) {
-                alert("Illegal state: loggedin and loggedout");
-            }
-
-        }
-
-
-
-
-        function start() {
-            toggle_visibility();
-            show_hide();
-
-        }
-        function show_hide() {
-            //var selector = document.getElementById('id_of_select');
-            //var value1 = selector[selector.selectedIndex].value;
-
-
-
-            if (hidDiv.style.display === "none") {
-                hidDiv.style.display = "block";
-            }
-            else {
-                hidDiv.style.display = "none";
-            }
-            //document.getElementById('display').innerHTML = value;
-        }
-        function log_out() {
-            userLogon.loggedin = false;
-            userLogon.loggedout = true;
-            userLogon.type = "guest";
-            userLogon.id = 0;
-            userLogon.userName = "#";
-
-            //document.getElementById('l1').innerHTML = userLogon.type;
-            //document.getElementById('l2').innerHTML = "loggedout";
-
-            document.getElementById('tasksfill').innerHTML = "";
-            toggle_visibility();
-            localLogoff();
-
-        }
-        function modify() {
-
-            var value2 = userBox.value;
-            var value3 = passBox.value;
-            var type2 = userLogon.type;
-            var loginstate2 = "loggedout";
-            alert("modify was called");
-            if (value2 == administrator.userName && value3 == administrator.password) {
-                alert("verification succeeded");
-                type2 = administrator.type;
-                userLogon.type = type2;
-                userLogon.loggedin = true;
-                userLogon.loggedout = false;
-                userLogon.userName = administrator.userName;
-                userLogon.password = administrator.password;
-
-                loginstate2 = "loggedin";
-                taskfill();
-                localLogon(userLogon.type, "YES", userLogon.userName);
-                show_hide();
-                $('#loginModal').modal('hide');
-                //-----Admin Tasks Fill----
-
-
-            } else {
-                if (value2 != dean.userName && value2 != officer.userName) {
-                    alert("Incorrect Login Information.");
-                }
-            }
-            if (value2 == dean.userName && value3 == dean.password) {
-                type2 = dean.type;
-                userLogon.type = type2;
-                userLogon.loggedin = true;
-                userLogon.loggedout = false;
-                userLogon.userName = dean.userName;
-                userLogon.password = dean.password;
-
-                loginstate2 = "loggedin";
-                taskfill();
-                localLogon(userLogon.type, "YES", userLogon.userName);
-                show_hide();
-                $('#loginModal').modal('hide');
-            }
-            if (value2 == officer.userName && value3 == officer.password) {
-                type2 = officer.type;
-                userLogon.type = type2;
-                userLogon.loggedin = true;
-                userLogon.loggedout = false;
-                userLogon.userName = officer.userName;
-                userLogon.password = officer.password;
-
-                loginstate2 = "loggedin";
-                taskfill();
-                localLogon(userLogon.type, "YES", userLogon.userName);
-                $('#loginModal').modal('hide');
-            }
-
-            //document.getElementById('l1').innerHTML = userLogon.type;
-            //document.getElementById('l2').innerHTML = loginstate2;
-            //toggle_visibility();
-
-
-
-
-
-        }
-        function taskfill() {
-            let tasks = document.getElementById("tasksfill");
-            tasks.innerHTML = "";
-            alert("taskfill called");
-            if (userLogon.type == administrator.type) {
-                alert("secondary verification successful");
-                // var node0 = document.createElement("A");
-                //var textnode = document.createTextNode("Admin Tasks");
-                //node0.appendChild(textnode);
-                //node0.setAttribute("href", "admintasks.html");
-                //document.getElementById('tasksfill').appendChild(node0);
-                //testLogon();
-
-                let template = document.getElementById("adminMenu");
-                let templateContent = template.content;
-                tasks.appendChild(templateContent);
-                //$('#loginModal').modal('hide');
-            }
-
-            if (userLogon.type == dean.type) {
-                alert("second verification successful");
-                //var node1 = document.createElement("A");
-                //var textnode1 = document.createTextNode("Dean Tasks");
-                //node1.appendChild(textnode1);
-                //node1.setAttribute("href", "#dean");
-                //document.getElementById('tasksfill').appendChild(node1);
-                let template1 = document.getElementById("deanMenu");
-                let templateContent1 = template1.content;
-                tasks.appendChild(templateContent1);
-                //testLogon();
-                //$('#loginModal').modal('hide');
-            }
-            if (userLogon.type == officer.type) {
-                alert("second verification successful");
-                //var node2 = document.createElement("A");
-                //var textnode2 = document.createTextNode("Officer Tasks");
-                //node2.appendChild(textnode2);
-                //node2.setAttribute("href", "#officer");
-                //document.getElementById('tasksfill').appendChild(node2);
-                //testLogon();
-                //$('#loginModal').modal('hide');
-                let template1 = document.getElementById("officerMenu");
-                let templateContent1 = template1.content;
-                tasks.appendChild(templateContent1);
-            }
-        }
-        function change_src(n) {
-            var url = [
-                "facultyRosterReport.html",
-                "gaRosterReport.html",
-                "facultyReport.html",
-                "name.html",
-                "#dept",
-                "class.html"
-            ];
-            document.getElementById("isrc").setAttribute("src", url[n]);
-            alert(url[n]);
-        }
-        //------Choosers--------------------
-        function chooser(id, choice2) {
-            var inner = document.getElementBy("" + id + choice2).innerHTML;
-            return inner;
-        }
-        function collegeChosen(choice1) {
-            //ccd
-            collegeDean.college = chooser("ccd", choice1);
-        }
-        function deptChosen(choice3) {
-            //deptdd
-            deptChair.dept = chooser("deptdd", choice3);
-        }
-        function proxyChosen(choice4) {
-            //pdd
-            proxySet = chooser("ppd", choice4);
-        }
-        function setChair(choice5) {
-            //cdd
-            deptChair.chair = chooser("cdd", choice5);
-        }
-        function setDean(choice6) {
-            //ddd
-            collegeDean.dean = chooser("ddd", choice6);
-        }
-        //----Add----------------
-        function getInput(id9) {
-            return document.getElementById(id9).value;
-        }
-        function addAcademic(num) {
-            academic.name = getInput("tbFName"+num);
-            academic.dept = getInput("tbDept"+num);
-            academic.college = getInput("tbCollege"+num);
-            academic.level = getInput("tbCLevel"+num);
-            academic.fileURL = getInput("tbTranscript"+num);
-            academics.push(academic);
-            alert(academic.name + " has been added.");
-        }
-        function addProfessional(num2) {
-            professional.name = getInput("tbFName" + num2);
-            professional.dept = getInput("tbDept" + num2);
-            professional.company = getInput("tbCompany" + num2);
-            professional.classesA = getInput("tbClasses" + num2);
-            professional.fileURL = getInput("tbResume" + num2);
-            professionals.push(professional);
-            alert(professional.name + " has been added.").
-        }
-        function proxyAdd() {
-            proxyUser = getInput("tbAdd");
-            proxyUsers.push(proxyUser);
-        }
-        //------Prefills------
-        function additemSelect(divId, idSeed, innerValue, clickFunction, index1) {
-            
-            var createA = document.createElement("A");
-            createA.setAttribute = ("class", "dropdown-item")
-            createA.setAttribute("id", "" + idSeed + index1);
-            createA.setAttribute("href", "#");
-            createA.setAttribute("onclick", clickfunction);
-            createA.textContent = innerValue;
-            document.getElementById(divId).appendChild(createA);
-            
-        }
-        function setInput(id8, innerValue2) {
-            document.getElementById(id8).setAttribute("value", innerValue2);
-        }
-        function nixProxyIndex(index5) {
-            proxyIndex = index5;
-        }
-        function prefillProxy() {
-            var k;
-            for (k = 0; k < proxyUsers.length; k++) {
-                additemSelect("nixSelect", "nixUser", proxyUsers[k], "nixProxyIndex(" + k + ")", k);
-            }
-        }
-        function prefillAcademic(num4) {
-            var j;
-            var n;
-            if (num4 == 1) {
-                //selection div for submenu 2
-                for (j = 0; j < academics.length; j++) {
-                    additemSelect("acadlist1", "ac", academics[j].name, "acadChosen(1, " + j + ")", j);
-                }
-            } else {
-                //selection div for submenu 1
-                for (n = 0; n < academics.length; n++) {
-                    additemSelect("acadlist2", "acl", academics[n].name, "proChosen(1, " + n + ")", n);
-                }
-            }
-        }
-        function prefillProfessional(num5) {
-            var l;
-            var m;
-            if (num5 == 1) {
-                //selection div for submenu 1
-                for (l = 0; l < professionals.length; l++) {
-                    additemSelect("prolist1", "pl", professionals[l].name, "proChosen(1, " + l + ")", l);
-                }
-            } else {
-                //selection div for submenu 2
-                for (m = 0; m < professionals.length; m++) {
-                    additemSelect("prolist2", "pl", professionals[m].name, "proChosen(2, " + m + ")", m);
-                }
-            }
-        }
-        function proChosen(num7, index7) {
-            proIndex = index7;
-            if (num7 == 1) {
-                setInput("tbDept5", professionals[proIndex].dept);
-                setInput("tbCompany5", professionals[proIndex].company);
-                setInput("tbClasses5", professionals[proIndex].classesA);
-                setInput("tbResume5", professionals[proIndex].fileURL);
-            } else {
-                setInput("tbDept4", professionals[proIndex].dept);
-                setInput("tbCompany4", professionals[proIndex].company);
-                setInput("tbClasses4", professionals[proIndex].classesA);
-                setInput("tbResume4", professionals[proIndex].fileURL);
-            }
-        }
-        function acadChosen(num6, index6) {
-            acadIndex = index6;
-            if (num6 == 1) {
-                setInput("tbDept8", academics[acadIndex].dept);
-                setInput("tbCollege8", academics[acadIndex].college);
-                setInput("tbCLevel8", academics[proIndex].level);
-                setInput("tbTranscript8", academics[proIndex].fileURL);
-            } else {
-                setInput("tbDept3", academics[acadIndex].dept);
-                setInput("tbCollege3", academics[acadIndex].college);
-                setInput("tbCLevel3", academics[acadIndex].level);
-                setInput("tbTranscript3", academics[acadIndex].fileURL);
-            }
-        }
-        function editProfessional(num7) {
-            if (confirm("Are you sure you wish to alter "+ professionals[proIndex].name+ "'s information?")) {
-                if (num7 == 1) {
-                    professionals[proIndex].dept = getInput("tbDept5");
-                    professionals[proIndex].company = getInput("tbCompany5");
-                    professionals[proIndex].classesA = getInput("tbClasses5");
-                    professionals[proIndex].fileURL = getInput("tbResume5");
-                } else {
-                    professionals[proIndex].dept = getInput("tbDept4");
-                    professionals[proIndex].company = getInput("tbCompany4");
-                    professionals[proIndex].classesA = getInput("tbClasses4");
-                    professionals[proIndex].fileURL = getInput("tbResume4");
-                }
-            ]
-        }
-        function editAcademic(num6) {
-            if (confirm("Are you sure you wish to alter "+ academics[acadIndex].name+ "'s information?")) {
-                if (num6 == 1) {
-                academics[acadIndex].dept = getInput("tbDept8");
-                academics[acadIndex].college = getInput("tbCollege8");
-                academics[proIndex].level = getInput("tbCLevel8");
-                academics[proIndex].fileURL = getInput("tbTranscript8");
-                 } else {
-                academics[acadIndex].dept = getInput("tbDept3");
-                academics[acadIndex].college = getInput("tbCollege3");
-                academics[acadIndex].level = getInput("tbCLevel3");
-                academics[acadIndex].fileURL = getInput("tbTranscript3");
-                }
-            }
-            
-        }
-        //----Remove------
-        function proxyRemove(){
-            proxyUsers(proxyIndex, 1);
-            document.getElementById("nixSelect").innerHTML = "";
-        }
-        _</script>
+    
+    
+    
 
 
     <footer class="page-footer font-small bg-dark pt-4" style="display:block;width:100%;background-color:black;">
