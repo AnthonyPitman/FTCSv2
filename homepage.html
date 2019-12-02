@@ -131,7 +131,7 @@ var tasks = document.getElementById("tasksfill");
 
         <div class="col col-md-auto" style="width:30%">
             <div id="tasksfill"></div>
-            <div id="proxyfill"></div>
+            <div id="proxytasksfill"></div>
             <div style="width:200px;">
             </div>
 
@@ -312,13 +312,13 @@ var tasks = document.getElementById("tasksfill");
                                     <a id="pdd2" class="dropdown-item" href="#" onclick="proxyChosen(2)">Brian Bennett</a>
                                 </div>
                             </div>
-                            <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
-                            <!-- javascript should be in these files-->
+                            
+                            
                         
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="prefillProxy()">Select</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="prelogonProxy()">Select</button>
                     </div>
                 </div>
             </div>
@@ -336,16 +336,16 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>UserName </label>
-                            <input type="text" id="tbProxy" disabled><br />
+                            <input type="text" id="tbProxy" value="testDean"></input><br />
                             <label>Password &nbsp</label>
-                            <input type="password" id="pwProxy" disabled>
+                            <input type="password" id="pwProxy" value="test"></input>
                             <!-- example work from proxylogin.html, proxyselect.html proxy input boxes disabled due to javascript prefill-->
                             <!-- javascript should be in these files-->
                         </strong>
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyLogin()">Login</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyLogon()">Login</button>
                     </div>
                 </div>
             </div>
@@ -390,12 +390,11 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillProxy()">
                                     Proxy Selection
                                 </a>
-                                <div id="nixSelect" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="nixUser1" class="dropdown-item" href="#" onclick="proxyNixed(1)">bHill</a>
-                                    <a id="nixUser2" class="dropdown-item" href="#" onclick="proxyNixed(2)">vBill</a>
+                                <div id="nixSelect" class="dropdown-menu" aria-labelledby="dropdownMenuLink" >
+                                    
                                 </div>
                             </div>
                             
@@ -404,7 +403,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#manageproxyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="proxyRemove()">Remove</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyRemove()">Remove</button>
                     </div>
                 </div>
             </div>
@@ -502,12 +501,11 @@ var tasks = document.getElementById("tasksfill");
                         
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillAcademic(2)">
                                     Faculty Name
                                 </a>
                                 <div id="acadList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="bHill" class="dropdown-item" href="#" onclick="">bHill</a>
-                                    <a id="vBill" class="dropdown-item" href="#" onclick="">vBill</a>
+                                    
                                 </div>
                             </div>
                             <br/><br/>
@@ -544,7 +542,7 @@ var tasks = document.getElementById("tasksfill");
                         
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillProfessional(2)">
                                     Faculty Name
                                 </a>
                                 <div id="proList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -630,7 +628,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         <strong>
                             <label>Faculty Full Name</label>
-                            <input type="text" id="tbFName7" disabled><br />
+                            <input type="text" id="tbFName7"><br />
                             <label>Department</label>
                             <input type="text" id="tbDept7"><br />
                             <label>Company - Title - Years Worked</label>
@@ -666,7 +664,7 @@ var tasks = document.getElementById("tasksfill");
                         
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillAcademic(1)">
                                     Faculty Name
                                 </a>
                                 <div id="acadList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -686,7 +684,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editAcademic()">Save</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="editAcademic(1)">Save</button>
                     </div>
                 </div>
             </div>
@@ -705,7 +703,7 @@ var tasks = document.getElementById("tasksfill");
                         
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillProfessional(1)">
                                     Faculty Name
                                 </a>
                                 <div id="proList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -731,7 +729,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#selectfacultyModal" onclick="">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary"  data-dismiss="modal" onclick="editProfessional()">Add</button>
+                        <button type="button" id="lb1" class="btn btn-primary"  data-dismiss="modal" onclick="editProfessional(1)">Add</button>
                     </div>
                 </div>
             </div>

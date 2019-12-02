@@ -23,7 +23,7 @@ var dean = {
 };
 
 var officer = {
-  userName: "testDean",
+  userName: "testOfficer",
   password: "test",
   type : "officer",
   id: 770,

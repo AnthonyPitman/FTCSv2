@@ -15,6 +15,13 @@ var proxyUsers = [];
 var acadIndex = 0; //global index academics
 var proIndex = 0;  //global index professionals
 var proxyIndex = 0; //global index proxyUsers
+var proxyLogon = {
+    loggedin: false,
+    loggedout: true,
+    type: "guest",
+    id: 0,
+    userName: "#",
+};
 
 var collegeDean = {
     college: "CBAT",
@@ -135,25 +142,44 @@ function change_src(n) {
     alert(url[n]);
 }
 //------Choosers--------------------
-function chooser(id, choice2) {
-    var inner = document.getElementBy("" + id + choice2).innerHTML;
-    return inner;
+function chooser(id2, choice2) {
+    var inner5;
+    //alert("chooser called");
+    
+    var cid = id2 + choice2;
+    
+    inner5 = document.getElementBy(cid).textContext;
+    
+    return inner5;
 }
 function collegeChosen(choice1) {
     //ccd
     collegeDean.college = chooser("ccd", choice1);
+    alert(collegeDean.college);
 }
 function deptChosen(choice3) {
     //deptdd
     deptChair.dept = chooser("deptdd", choice3);
+    alert(deptChair.dept);
 }
 function proxyChosen(choice4) {
     //pdd
-    proxySet = chooser("ppd", choice4);
+    proxySet = chooser("pdd", choice4);
+    alert(proxySet);
+    if (proxySet == "Brian Bennett") {
+        proxyLogon.userName = "testOfficer";
+        proxyLogon.type = "officer";
+    }
+    if (proxySet == "Tony Pittarese") {
+        proxyLogon.userName = "testDean";
+        proxyLogon.type = "dean";
+    }
 }
 function setChair(choice5) {
     //cdd
+    
     deptChair.chair = chooser("cdd", choice5);
+
 }
 function setDean(choice6) {
     //ddd
@@ -171,6 +197,7 @@ function addAcademic(num) {
     academic.fileURL = getInput("tbTranscript" + num);
     academics.push(academic);
     alert(academic.name + " has been added.");
+    alert(academics[0].name);
 }
 function addProfessional(num2) {
     professional.name = getInput("tbFName" + num2);
@@ -193,34 +220,44 @@ function additemSelect(divId, idSeed, innerValue, clickFunction, index1) {
     createA.setAttribute("id", "" + idSeed + index1);
     createA.setAttribute("href", "#");
     createA.setAttribute("onclick", clickFunction);
-    createA.textContent = innerValue;
+    createA.innerHTML = innerValue;
     document.getElementById(divId).appendChild(createA);
 
 }
 function setInput(id8, innerValue2) {
-    document.getElementById(id8).setAttribute("value", innerValue2);
+    alert(innerValue2;)
+    document.getElementById(id8).setAttribute("value", innerValue2)
 }
 function nixProxyIndex(index5) {
     proxyIndex = index5;
 }
 function prefillProxy() {
     var k;
+    alert(proxyUsers.length);
+    document.getElementById("nixSelect").innerHTML = "";
     for (k = 0; k < proxyUsers.length; k++) {
         additemSelect("nixSelect", "nixUser", proxyUsers[k], "nixProxyIndex(" + k + ")", k);
     }
 }
+function preloginProxy() {
+    setInput("tbProxy", proxyLogon.userName);
+    setInput("pwProxy", "test");
+}
 function prefillAcademic(num4) {
     var j;
     var n;
+    alert(num4)
     if (num4 === 1) {
         //selection div for submenu 2
+        document.getElementById("acadList1").innerHTML = "";
         for (j = 0; j < academics.length; j++) {
-            additemSelect("acadlist1", "ac", academics[j].name, "acadChosen(1, " + j + ")", j);
+            additemSelect("acadList1", "ac", academics[j].name, "acadChosen(1, " + j + ")", j);
         }
     } else {
         //selection div for submenu 1
+        document.getElementById("acadList1").innerHTML = "";
         for (n = 0; n < academics.length; n++) {
-            additemSelect("acadlist2", "acl", academics[n].name, "proChosen(1, " + n + ")", n);
+            additemSelect("acadList2", "acl", academics[n].name, "acadChosen(1, " + n + ")", n);
         }
     }
 }
@@ -229,18 +266,21 @@ function prefillProfessional(num5) {
     var m;
     if (num5 === 1) {
         //selection div for submenu 1
+        getElementById("proList1").innerHTML = "";
         for (l = 0; l < professionals.length; l++) {
-            additemSelect("prolist1", "pl", professionals[l].name, "proChosen(1, " + l + ")", l);
+            additemSelect("proList1", "pl", professionals[l].name, "proChosen(1, " + l + ")", l);
         }
     } else {
         //selection div for submenu 2
+        getElementById("proList1").innerHTML = "";
         for (m = 0; m < professionals.length; m++) {
-            additemSelect("prolist2", "pl", professionals[m].name, "proChosen(2, " + m + ")", m);
+            additemSelect("proList2", "pl", professionals[m].name, "proChosen(2, " + m + ")", m);
         }
     }
 }
 function proChosen(num7, index7) {
     proIndex = index7;
+    alert(professionals[index7].name);
     if (num7 === 1) {
         setInput("tbDept5", professionals[proIndex].dept);
         setInput("tbCompany5", professionals[proIndex].company);
@@ -255,6 +295,7 @@ function proChosen(num7, index7) {
 }
 function acadChosen(num6, index6) {
     acadIndex = index6;
+    alert(academics[index6].name);
     if (num6 === 1) {
         setInput("tbDept8", academics[acadIndex].dept);
         setInput("tbCollege8", academics[acadIndex].college);
@@ -300,9 +341,12 @@ function editProfessional(num7) {
 
     }
     //----Remove------
-    function proxyRemove() {
-        proxyUsers(proxyIndex, 1);
+function proxyRemove() {
+    if (confirm("Remove username " + proxyUsers[proxyIndex] + "?")) {
+        proxyUsers.splice(proxyIndex, 1);
         document.getElementById("nixSelect").innerHTML = "";
+    }
+        
 }
 function alarm() {
     alert("this works");
@@ -310,4 +354,42 @@ function alarm() {
 function filler() {
     userLogon.type = administrator.type;
     taskfill();
+}
+function proxyLogon() {
+    //proxySet = "Brian Bennett";
+    alert("proxy logon called");
+    proxyFill();
+}
+function proxyFill() {
+        alert("proxy fill called");
+        var proxytasks3 = document.getElementById("proxytasksfill");
+    
+        var template5 = document.getElementById("officerMenu");
+        var templateContent5 = template5.content;
+        alert("proxy logon successful");
+        proxytasks3.appendChild(templateContent5);
+    
+    
+    
+        var template6 = document.getElementById("deanMenu");
+        var templateContent6 = template6.content;
+        proxytasks3.appendChild(templateContent6);
+        alert("proxy logon successful");
+    
+    
+    
+}
+function confirmChair() {
+    if (confirm("Are you sure that you want" + deptChair.chair + "to be chair of " + deptChair.dept + "?")) {
+
+    } else {
+
+    }
+}
+function confirmDearn() {
+    if (confirm("Are you sure that you want" + collegeDean.dean + "to be dean of " + collegeDean.college+"?")) {
+
+    } else {
+
+    }
 }
