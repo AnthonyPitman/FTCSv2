@@ -143,14 +143,10 @@ function change_src(n) {
 }
 //------Choosers--------------------
 function chooser(id2, choice2) {
-    var inner5;
-    //alert("chooser called");
-    
     var cid = id2 + choice2;
+    var chosen = document.getElementBy(cid).textContent;
     
-    inner5 = document.getElementBy(cid).textContext;
-    
-    return inner5;
+    return chosen;
 }
 function collegeChosen(choice1) {
     //ccd
@@ -164,8 +160,9 @@ function deptChosen(choice3) {
 }
 function proxyChosen(choice4) {
     //pdd
+    alert("proxyChosen called");
     proxySet = chooser("pdd", choice4);
-    alert(proxySet);
+    
     if (proxySet == "Brian Bennett") {
         proxyLogon.userName = "testOfficer";
         proxyLogon.type = "officer";
@@ -220,13 +217,13 @@ function additemSelect(divId, idSeed, innerValue, clickFunction, index1) {
     createA.setAttribute("id", "" + idSeed + index1);
     createA.setAttribute("href", "#");
     createA.setAttribute("onclick", clickFunction);
-    createA.innerHTML = innerValue;
+    createA.textContent = innerValue;
     document.getElementById(divId).appendChild(createA);
 
 }
 function setInput(id8, innerValue2) {
-    alert(innerValue2;)
-    document.getElementById(id8).setAttribute("value", innerValue2)
+    alert(innerValue2);
+    document.getElementById(id8).setAttribute("value", innerValue2);
 }
 function nixProxyIndex(index5) {
     proxyIndex = index5;
@@ -355,7 +352,7 @@ function filler() {
     userLogon.type = administrator.type;
     taskfill();
 }
-function proxyLogon() {
+function proxyLogin() {
     //proxySet = "Brian Bennett";
     alert("proxy logon called");
     proxyFill();
@@ -380,14 +377,14 @@ function proxyFill() {
     
 }
 function confirmChair() {
-    if (confirm("Are you sure that you want" + deptChair.chair + "to be chair of " + deptChair.dept + "?")) {
+    if (confirm("Are you sure that you want " + deptChair.chair + " to be chair of " + deptChair.dept + "?")) {
 
     } else {
 
     }
 }
-function confirmDearn() {
-    if (confirm("Are you sure that you want" + collegeDean.dean + "to be dean of " + collegeDean.college+"?")) {
+function confirmDean() {
+    if (confirm("Are you sure that you want " + collegeDean.dean + " to be dean of " + collegeDean.college+"?")) {
 
     } else {
 

@@ -220,7 +220,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#mcoModal">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="">Change</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="confirmDean()">Change</button>
                     </div>
                 </div>
             </div>
@@ -263,7 +263,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
                         <button type="button" class="btn btn-secondary" data-dismiss="modal" data-toggle="modal" data-target="#mcoModal">Back</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="">Change</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="confirmChair()">Change</button>
                     </div>
                 </div>
             </div>
@@ -345,7 +345,7 @@ var tasks = document.getElementById("tasksfill");
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyLogon()">Login</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" onclick="proxyLogin()">Login</button>
                     </div>
                 </div>
             </div>
@@ -664,7 +664,7 @@ var tasks = document.getElementById("tasksfill");
                         
                             <label>Faculty Full Name</label>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillAcademic(1)">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="">
                                     Faculty Name
                                 </a>
                                 <div id="acadList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
