@@ -208,6 +208,8 @@ function addProfessional(num2) {
     professional.fileURL = getInput("tbResume" + num2);
     professionals.push(professional);
     alert(professional.name + " has been added.");
+    getElementById("proList2").innerHTML = "";
+    getElementById("proList1").innerHTML = "";
 }
 function proxyAdd() {
     proxyUser = getInput("tbAdd");
@@ -226,7 +228,7 @@ function additemSelect(divId, idSeed, innerValue, clickFunction, index1) {
 
 }
 function setInput(id8, innerValue2) {
-    alert(innerValue2);
+    //alert(innerValue2);
     document.getElementById(id8).setAttribute("value", innerValue2);
 }
 function nixProxyIndex(index5) {
@@ -234,14 +236,14 @@ function nixProxyIndex(index5) {
 }
 function prefillProxy() {
     var k;
-    alert(proxyUsers.length);
+    //alert(proxyUsers.length);
     document.getElementById("nixSelect").innerHTML = "";
     for (k = 0; k < proxyUsers.length; k++) {
         additemSelect("nixSelect", "nixUser", proxyUsers[k], "nixProxyIndex(" + k + ")", k);
     }
 }
 function preloginProxy() {
-    alert(proxyLogon.userName);
+   // alert(proxyLogon.userName);
     setInput("tbProxy", proxyLogon.userName);
     setInput("pwProxy", "test");
 }
@@ -268,13 +270,13 @@ function prefillProfessional(num5) {
     var m;
     if (num5 === 1) {
         //selection div for submenu 1
-        getElementById("proList1").innerHTML = "";
+        
         for (l = 0; l < professionals.length; l++) {
             additemSelect("proList1", "pl", professionals[l].name, "proChosen(1, " + l + ")", l);
         }
     } else {
         //selection div for submenu 2
-        getElementById("proList2").innerHTML = "";
+        
         for (m = 0; m < professionals.length; m++) {
             additemSelect("proList2", "prl", professionals[m].name, "proChosen(2, " + m + ")", m);
         }
@@ -282,8 +284,8 @@ function prefillProfessional(num5) {
 }
 function proChosen(num7, index7) {
     proIndex = index7;
-    alert(professionals[index7].name);
-    if (num7 === 1) {
+    //alert(professionals[index7].name);
+    if (num7 == 1) {
         setInput("tbName5", professionals[proIndex].name);
         setInput("tbDept5", professionals[proIndex].dept);
         setInput("tbCompany5", professionals[proIndex].company);
@@ -299,8 +301,8 @@ function proChosen(num7, index7) {
 }
 function acadChosen(num6, index6) {
     acadIndex = index6;
-    alert(academics[index6].name);
-    if (num6 === 1) {
+    //alert(academics[index6].name);
+    if (num6 == 1) {
         setInput("tbName8", academics[acadIndex].name);
         setInput("tbDept8", academics[acadIndex].dept);
         setInput("tbCollege8", academics[acadIndex].college);
@@ -363,11 +365,11 @@ function filler() {
 }
 function proxyLogin() {
     //proxySet = "Brian Bennett";
-    alert("proxy logon called");
+   // alert("proxy logon called");
     proxyFill();
 }
 function proxyFill() {
-        alert("proxy fill called");
+        //alert("proxy fill called");
         var proxytasks3 = document.getElementById("proxytasksfill");
     if (proxyLogon.userName == "testOfficer") {
         var template5 = document.getElementById("officerMenu");

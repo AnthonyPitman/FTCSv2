@@ -42,9 +42,9 @@ var officer = {
 function taskfill() {
     tasks = document.getElementById("tasksfill");
     tasks.innerHTML = "";
-    alert("taskfill called");
+    //alert("taskfill called");
     if (userLogon.type == administrator.type) {
-        alert("secondary verification successful");
+       // alert("secondary verification successful");
         var template = document.getElementById("adminMenu");
         var templateContent = template.content;
         tasks.appendChild(templateContent);
@@ -52,14 +52,14 @@ function taskfill() {
     }
 
     if (userLogon.type == dean.type) {
-        alert("second verification successful");
+        //alert("second verification successful");
         var template1 = document.getElementById("deanMenu");
         var templateContent1 = template1.content;
         tasks.appendChild(templateContent1);
         
     }
     if (userLogon.type == officer.type) {
-        alert("second verification successful");
+        //alert("second verification successful");
         var template2 = document.getElementById("officerMenu");
         var templateContent2 = template2.content;
         tasks.appendChild(templateContent2);
@@ -71,7 +71,7 @@ function taskfill() {
           value3 = document.getElementById("pass1").value;
           type2 = userLogon.type;
           loginstate2 = "loggedout";
-          alert("modify was called");
+          //alert("modify was called");
           if (value2 == administrator.userName && value3 == administrator.password) {
               alert("verification succeeded");
               type2 = administrator.type;
@@ -91,6 +91,7 @@ function taskfill() {
             }
           }
           if (value2 == dean.userName && value3 == dean.password) {
+              alert("verification succeeded");
               type2 = dean.type;
               userLogon.type = type2;
               userLogon.loggedin = true;
@@ -103,6 +104,7 @@ function taskfill() {
 
           }
           if (value2 == officer.userName && value3 == officer.password) {
+              alert("verification succeeded");
               type2 = officer.type;
               userLogon.type = type2;
               userLogon.loggedin = true;
