@@ -144,9 +144,12 @@ function change_src(n) {
 //------Choosers--------------------
 function chooser(id2, choice2) {
     var cid = id2 + choice2;
-    var chosen = document.getElementBy(cid).textContent;
     
-    return chosen;
+    
+    return getTC(cid);
+} 
+function getTC(idTC) {
+    return document.getElementById(idTC).textContent;
 }
 function collegeChosen(choice1) {
     //ccd
@@ -161,8 +164,8 @@ function deptChosen(choice3) {
 function proxyChosen(choice4) {
     //pdd
     alert("proxyChosen called");
-    proxySet = chooser("pdd", choice4);
-    
+    proxySet = chooser("prdd", choice4);
+    alert(proxySet);
     if (proxySet == "Brian Bennett") {
         proxyLogon.userName = "testOfficer";
         proxyLogon.type = "officer";
@@ -176,16 +179,17 @@ function setChair(choice5) {
     //cdd
     
     deptChair.chair = chooser("cdd", choice5);
-
+    alert(deptChair.chair);
 }
 function setDean(choice6) {
     //ddd
     collegeDean.dean = chooser("ddd", choice6);
+    alert(collegeDean.dean);
 }
 //----Add----------------
 function getInput(id9) {
     return document.getElementById(id9).value;
-}
+}//works
 function addAcademic(num) {
     academic.name = getInput("tbFName" + num);
     academic.dept = getInput("tbDept" + num);
@@ -208,7 +212,7 @@ function addProfessional(num2) {
 function proxyAdd() {
     proxyUser = getInput("tbAdd");
     proxyUsers.push(proxyUser);
-}
+}//works
 //------Prefills------
 function additemSelect(divId, idSeed, innerValue, clickFunction, index1) {
 
@@ -237,6 +241,7 @@ function prefillProxy() {
     }
 }
 function preloginProxy() {
+    alert(proxyLogon.userName);
     setInput("tbProxy", proxyLogon.userName);
     setInput("pwProxy", "test");
 }
@@ -254,7 +259,7 @@ function prefillAcademic(num4) {
         //selection div for submenu 1
         document.getElementById("acadList1").innerHTML = "";
         for (n = 0; n < academics.length; n++) {
-            additemSelect("acadList2", "acl", academics[n].name, "acadChosen(1, " + n + ")", n);
+            additemSelect("acadList2", "acl", academics[n].name, "acadChosen(2, " + n + ")", n);
         }
     }
 }
@@ -269,9 +274,9 @@ function prefillProfessional(num5) {
         }
     } else {
         //selection div for submenu 2
-        getElementById("proList1").innerHTML = "";
+        getElementById("proList2").innerHTML = "";
         for (m = 0; m < professionals.length; m++) {
-            additemSelect("proList2", "pl", professionals[m].name, "proChosen(2, " + m + ")", m);
+            additemSelect("proList2", "prl", professionals[m].name, "proChosen(2, " + m + ")", m);
         }
     }
 }
@@ -279,11 +284,13 @@ function proChosen(num7, index7) {
     proIndex = index7;
     alert(professionals[index7].name);
     if (num7 === 1) {
+        setInput("tbName5", professionals[proIndex].name);
         setInput("tbDept5", professionals[proIndex].dept);
         setInput("tbCompany5", professionals[proIndex].company);
         setInput("tbClasses5", professionals[proIndex].classesA);
         setInput("tbResume5", professionals[proIndex].fileURL);
     } else {
+        setInput("tbName4", professionals[proIndex].name);
         setInput("tbDept4", professionals[proIndex].dept);
         setInput("tbCompany4", professionals[proIndex].company);
         setInput("tbClasses4", professionals[proIndex].classesA);
@@ -294,11 +301,13 @@ function acadChosen(num6, index6) {
     acadIndex = index6;
     alert(academics[index6].name);
     if (num6 === 1) {
+        setInput("tbName8", academics[acadIndex].name);
         setInput("tbDept8", academics[acadIndex].dept);
         setInput("tbCollege8", academics[acadIndex].college);
         setInput("tbCLevel8", academics[proIndex].level);
         setInput("tbTranscript8", academics[proIndex].fileURL);
     } else {
+        setInput("tbName3", academics[acadIndex].name);
         setInput("tbDept3", academics[acadIndex].dept);
         setInput("tbCollege3", academics[acadIndex].college);
         setInput("tbCLevel3", academics[acadIndex].level);
@@ -360,19 +369,19 @@ function proxyLogin() {
 function proxyFill() {
         alert("proxy fill called");
         var proxytasks3 = document.getElementById("proxytasksfill");
-    
+    if (proxyLogon.userName == "testOfficer") {
         var template5 = document.getElementById("officerMenu");
         var templateContent5 = template5.content;
         alert("proxy logon successful");
         proxytasks3.appendChild(templateContent5);
-    
-    
-    
+
+    } else {
+
         var template6 = document.getElementById("deanMenu");
         var templateContent6 = template6.content;
         proxytasks3.appendChild(templateContent6);
         alert("proxy logon successful");
-    
+    }
     
     
 }

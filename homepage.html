@@ -308,8 +308,8 @@ var tasks = document.getElementById("tasksfill");
                                     Proxy Selection
                                 </a>
                                 <div id="proxydd" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                    <a id="pdd1" class="dropdown-item" href="#" onclick="proxyChosen(1)">Tony Pittarese</a>
-                                    <a id="pdd2" class="dropdown-item" href="#" onclick="proxyChosen(2)">Brian Bennett</a>
+                                    <a id="prdd1" class="dropdown-item" href="#" onclick="proxyChosen(1)">Tony Pittarese</a>
+                                    <a id="prdd2" class="dropdown-item" href="#" onclick="proxyChosen(2)">Brian Bennett</a>
                                 </div>
                             </div>
                             
@@ -318,7 +318,7 @@ var tasks = document.getElementById("tasksfill");
                     </div>
                     <div class="modal-footer">
                         <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="prelogonProxy()">Select</button>
+                        <button type="button" id="lb1" class="btn btn-primary" data-dismiss="modal" data-toggle="modal" data-target="#proxyModal" onclick="preloginProxy()">Select</button>
                     </div>
                 </div>
             </div>
@@ -500,8 +500,9 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         
                             <label>Faculty Full Name</label>
+                            <input type="text" id="tbName3" disabled /><br />
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillAcademic(2)">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="">
                                     Faculty Name
                                 </a>
                                 <div id="acadList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -541,8 +542,9 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         
                             <label>Faculty Full Name</label>
+                            <input type="text" id="tbName4" disabled /> <br />
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillProfessional(2)">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="">
                                     Faculty Name
                                 </a>
                                 <div id="proList2" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
@@ -663,6 +665,7 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         
                             <label>Faculty Full Name</label>
+                            <input type="text" id="tbName8" disabled><br/>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
                                 <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="">
                                     Faculty Name
@@ -702,8 +705,9 @@ var tasks = document.getElementById("tasksfill");
                     <div class="modal-body" style="color:black;">
                         
                             <label>Faculty Full Name</label>
+                            <input type="text" id="tbName5" disabled><br/>
                             <div class="dropdown show" style="margin:auto;padding-left:45%">
-                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="prefillProfessional(1)">
+                                <a class="btn btn-secondary dropdown-toggle" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false" onclick="">
                                     Faculty Name
                                 </a>
                                 <div id="proList1" class="dropdown-menu" aria-labelledby="dropdownMenuLink">
