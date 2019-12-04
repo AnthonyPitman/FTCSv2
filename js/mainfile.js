@@ -20,7 +20,7 @@ var proxyLogon = {
     loggedout: true,
     type: "guest",
     id: 0,
-    userName: "#",
+    userName: "#"
 };
 
 var collegeDean = {
@@ -135,7 +135,7 @@ function change_src(n) {
         "gaRosterReport.html",
         "facultyReport.html",
         "name.html",
-        "#dept",
+        "dept.html",
         "class.html"
     ];
     document.getElementById("isrc").setAttribute("src", url[n]);
