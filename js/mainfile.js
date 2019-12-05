@@ -139,7 +139,7 @@ function change_src(n) {
         "class.html"
     ];
     document.getElementById("isrc").setAttribute("src", url[n]);
-    alert(url[n]);
+    //alert(url[n]);
 }
 //------Choosers--------------------
 function chooser(id2, choice2) {
